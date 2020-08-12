@@ -1,0 +1,10 @@
+{
+    "config": {
+        "platform": {
+            "php": "7.0.22"
+        }
+    },
+    "require-dev": {
+        "dxw/whippet": "^1.0"
+    }
+}

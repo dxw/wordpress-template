@@ -1,0 +1,32 @@
+#!/bin/sh
+set -e
+
+if ! type "docker" > /dev/null 2>&1; then
+  echo "\033[96mWarning:\033[0m Please install Docker: https://docs.docker.com/docker-for-mac/install/"
+  exit 1
+fi
+
+if ! type "docker-compose" > /dev/null 2>&1; then
+  echo "\033[96mWarning:\033[0m Please install Docker Compose: https://docs.docker.com/docker-for-mac/install/"
+  exit 1
+fi
+
+if ! type "php" > /dev/null 2>&1; then
+  echo "\033[96mWarning:\033[0m Please install PHP, one method is 'brew install php'"
+  exit 1
+fi
+
+if ! type "composer" > /dev/null 2>&1; then
+  echo "\033[96mWarning:\033[0m Please install Composer, https://getcomposer.org/download/"
+  exit 1
+fi
+
+composer install
+
+if test -f whippet.json 2>&1; then
+  if test -f whippet.lock 2>&1; then
+    vendor/bin/whippet deps install
+  else
+    vendor/bin/whippet deps update
+  fi
+fi

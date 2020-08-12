@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+
+script/bootstrap
+docker-compose exec wordpress /usr/src/app/setup/internal.sh

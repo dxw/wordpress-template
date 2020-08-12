@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+echo '------------------------------------------------------------------------------'
+echo 'DEPRECATED'
+echo 'This command is deprecated and will be removed in a future version. Please use'
+echo 'script/console instead.'
+echo '------------------------------------------------------------------------------'
+
+exec script/console
