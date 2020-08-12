@@ -3,8 +3,5 @@
         "plugins": "git@git.govpress.com:wordpress-plugins/"
     },
     "plugins": [
-        {"name": "akismet"}
-    ],
-    "themes": [
     ]
 }
