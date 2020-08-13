@@ -1,3 +1,10 @@
 {
-    "hash": "ddf08535782cc8bb6e057800b308b64c331d6b2a"
+    "hash": "d257e677c20e8ea75bd84ccdcd0daba929e3ebe9",
+    "plugins": [
+        {
+            "name": "advanced-custom-fields-pro",
+            "src": "git@git.govpress.com:wordpress-plugins/advanced-custom-fields-pro",
+            "revision": "7cd44e91fdbf55b127ee0dbf8ec3a39c6660f6dd"
+        }
+    ]
 }

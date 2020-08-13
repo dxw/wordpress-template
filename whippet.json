@@ -3,5 +3,6 @@
         "plugins": "git@git.govpress.com:wordpress-plugins/"
     },
     "plugins": [
+        {"name": "advanced-custom-fields-pro"}
     ]
 }
