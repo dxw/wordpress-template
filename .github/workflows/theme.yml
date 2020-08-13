@@ -4,7 +4,7 @@ on: push
 
 defaults:
   run:
-    working-directory: wp-content/themes/whippet-theme
+    working-directory: wp-content/themes/theme
 
 jobs:
   peridot:
