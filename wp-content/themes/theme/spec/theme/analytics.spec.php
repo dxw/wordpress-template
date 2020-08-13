@@ -1,9 +1,9 @@
 <?php
 
-describe(\Dxw\WhippetTheme\Theme\Analytics::class, function () {
+describe(\Theme\Theme\Analytics::class, function () {
     beforeEach(function () {
         \WP_Mock::setUp();
-        $this->analytics = new \Dxw\WhippetTheme\Theme\Analytics();
+        $this->analytics = new \Theme\Theme\Analytics();
     });
 
     afterEach(function () {

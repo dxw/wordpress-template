@@ -1,6 +1,6 @@
 <?php
 
-namespace Dxw\WhippetTheme\Lib\Whippet;
+namespace Theme\Lib\Whippet;
 
 class TemplateTags
 {
@@ -12,7 +12,7 @@ class TemplateTags
     public static function w_template_warning()
     {
         ?>
-        <div class="whippet alert template-warning" style="background: rgb(255,100,100); width: 100%; padding: 10px;"><h1>You're using a fallback template: <?php echo basename(\Dxw\WhippetTheme\Lib\Whippet\Layout::$wordpress_template); ?></h1> <p>Did you really mean to? If you can, define a specific template and use it. Like single-post.php.</p></div>
+        <div class="whippet alert template-warning" style="background: rgb(255,100,100); width: 100%; padding: 10px;"><h1>You're using a fallback template: <?php echo basename(\Theme\Lib\Whippet\Layout::$wordpress_template); ?></h1> <p>Did you really mean to? If you can, define a specific template and use it. Like single-post.php.</p></div>
         <?php
     }
 

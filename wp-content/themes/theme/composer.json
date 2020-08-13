@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Dxw\\WhippetTheme\\": "app/"
+            "Theme\\": "app/"
         }
     },
     "scripts": {

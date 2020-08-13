@@ -1,9 +1,9 @@
 <?php
 
-describe(\Dxw\WhippetTheme\Theme\Menus::class, function () {
+describe(\Theme\Theme\Menus::class, function () {
     beforeEach(function () {
         \WP_Mock::setUp();
-        $this->menus = new \Dxw\WhippetTheme\Theme\Menus();
+        $this->menus = new \Theme\Theme\Menus();
     });
 
     afterEach(function () {

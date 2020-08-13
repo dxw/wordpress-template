@@ -1,9 +1,9 @@
 <?php
 
-describe(\Dxw\WhippetTheme\Theme\Widgets::class, function () {
+describe(\Theme\Theme\Widgets::class, function () {
     beforeEach(function () {
         \WP_Mock::setUp();
-        $this->widgets = new \Dxw\WhippetTheme\Theme\Widgets();
+        $this->widgets = new \Theme\Theme\Widgets();
     });
 
     afterEach(function () {

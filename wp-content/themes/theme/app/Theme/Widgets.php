@@ -1,6 +1,6 @@
 <?php
 
-namespace Dxw\WhippetTheme\Theme;
+namespace Theme\Theme;
 
 class Widgets implements \Dxw\Iguana\Registerable
 {

@@ -1,9 +1,9 @@
 <?php
 
-describe(\Dxw\WhippetTheme\Theme\Media::class, function () {
+describe(\Theme\Theme\Media::class, function () {
     beforeEach(function () {
         \WP_Mock::setUp();
-        $this->media = new \Dxw\WhippetTheme\Theme\Media();
+        $this->media = new \Theme\Theme\Media();
     });
 
     afterEach(function () {

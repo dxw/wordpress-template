@@ -1,9 +1,9 @@
 <?php
 
-describe(\Dxw\WhippetTheme\Theme\TitleTag::class, function () {
+describe(\Theme\Theme\TitleTag::class, function () {
     beforeEach(function () {
         \WP_Mock::setUp();
-        $this->titleTag = new \Dxw\WhippetTheme\Theme\TitleTag();
+        $this->titleTag = new \Theme\Theme\TitleTag();
     });
 
     afterEach(function () {

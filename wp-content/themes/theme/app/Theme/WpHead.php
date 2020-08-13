@@ -1,6 +1,6 @@
 <?php
 
-namespace Dxw\WhippetTheme\Theme;
+namespace Theme\Theme;
 
 class WpHead implements \Dxw\Iguana\Registerable
 {

@@ -1,6 +1,6 @@
 <?php
 
-describe(\Dxw\WhippetTheme\Theme\Plugins::class, function () {
+describe(\Theme\Theme\Plugins::class, function () {
     beforeEach(function () {
         \WP_Mock::setUp();
         \WP_Mock::wpFunction('esc_html', [
@@ -18,13 +18,13 @@ describe(\Dxw\WhippetTheme\Theme\Plugins::class, function () {
     });
 
     it('is registrable', function () {
-        $plugins = new \Dxw\WhippetTheme\Theme\Plugins([]);
+        $plugins = new \Theme\Theme\Plugins([]);
         expect($plugins)->to->be->an->instanceof(\Dxw\Iguana\Registerable::class);
     });
 
     describe('->register()', function () {
         it('registers theme activation hook', function () {
-            $plugins = new \Dxw\WhippetTheme\Theme\Plugins([]);
+            $plugins = new \Theme\Theme\Plugins([]);
             \WP_Mock::expectActionAdded('after_switch_theme', [$plugins, 'checkDependencies']);
             $plugins->register();
         });
@@ -58,7 +58,7 @@ describe(\Dxw\WhippetTheme\Theme\Plugins::class, function () {
                 'times' => 2,
                 'return' => 'http://localhost/wp-admin/plugins.php'
             ]);
-            $plugins = new \Dxw\WhippetTheme\Theme\Plugins([
+            $plugins = new \Theme\Theme\Plugins([
                 'path-to/a-required-plugin.php',
                 'advanced-custom-fields-pro/acf.php'
             ]);
@@ -85,7 +85,7 @@ describe(\Dxw\WhippetTheme\Theme\Plugins::class, function () {
                         'advanced-custom-fields-pro/acf.php'
                     ]
                 ]);
-                $plugins = new \Dxw\WhippetTheme\Theme\Plugins([
+                $plugins = new \Theme\Theme\Plugins([
                     'path-to/a-required-plugin.php',
                     'advanced-custom-fields-pro/acf.php'
                 ]);
@@ -119,7 +119,7 @@ describe(\Dxw\WhippetTheme\Theme\Plugins::class, function () {
                     'times' => 1,
                     'return' => 'http://localhost/wp-admin/plugins.php'
                 ]);
-                $plugins = new \Dxw\WhippetTheme\Theme\Plugins([
+                $plugins = new \Theme\Theme\Plugins([
                     'path-to/a-required-plugin.php',
                     'advanced-custom-fields-pro/acf.php'
                 ]);

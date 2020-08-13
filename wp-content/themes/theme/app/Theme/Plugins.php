@@ -1,6 +1,6 @@
 <?php
 
-namespace Dxw\WhippetTheme\Theme;
+namespace Theme\Theme;
 
 use Dxw\Iguana\Registerable;
 

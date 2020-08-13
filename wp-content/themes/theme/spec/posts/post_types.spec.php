@@ -1,9 +1,9 @@
 <?php
 
-describe(\Dxw\WhippetTheme\Posts\PostTypes::class, function () {
+describe(\Theme\Posts\PostTypes::class, function () {
     beforeEach(function () {
         \WP_Mock::setUp();
-        $this->postTypes = new \Dxw\WhippetTheme\Posts\PostTypes();
+        $this->postTypes = new \Theme\Posts\PostTypes();
     });
 
     afterEach(function () {

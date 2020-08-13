@@ -63,7 +63,7 @@ In an iguana-style theme, you would put this in an new file, say `app/RegisterSt
 ```
 <?php
 
-namespace Dxw\WhippetTheme;
+namespace Theme;
 
 class RegisterStuff implements \Dxw\Iguana\Registerable
 {
@@ -83,7 +83,7 @@ class RegisterStuff implements \Dxw\Iguana\Registerable
 And add a line to the end of `app/di.php` to instantiate this class:
 
 ```
-$registrar->addInstance(\Dxw\WhippetTheme\RegisterStuff::class, new \Dxw\WhippetTheme\RegisterStuff());
+$registrar->addInstance(\Theme\RegisterStuff::class, new \Theme\RegisterStuff());
 ```
 
 ### Adding a new helper function
@@ -102,7 +102,7 @@ But with iguana, we define that in a class too, say `app/HelperFunctions.php`:
 ```
 <?php
 
-namespace Dxw\WhippetTheme;
+namespace Theme;
 
 class HelperFunctions
 {
@@ -121,7 +121,7 @@ class HelperFunctions
 And then we add a line like this to `app/di.php`:
 
 ```
-$registrar->addInstance(\Namespace\WhippetTheme\HelperFunctions::class, new \Namespace\WhippetTheme\HelperFunctions(
+$registrar->addInstance(\Theme\HelperFunctions::class, new \Theme\HelperFunctions(
     $registrar->getInstance(\Dxw\Iguana\Theme\Helpers::class)
 ));
 ```

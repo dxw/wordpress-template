@@ -1,6 +1,6 @@
 <?php
 
-namespace Dxw\WhippetTheme\Posts;
+namespace Theme\Posts;
 
 class CustomFields implements \Dxw\Iguana\Registerable
 {

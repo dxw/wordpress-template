@@ -1,6 +1,6 @@
 <?php
 
-describe(\Dxw\WhippetTheme\Theme\Pagination::class, function () {
+describe(\Theme\Theme\Pagination::class, function () {
     beforeEach(function () {
         \WP_Mock::setUp();
     });
@@ -12,7 +12,7 @@ describe(\Dxw\WhippetTheme\Theme\Pagination::class, function () {
     it('registers the function in the constructor', function () {
         $helpersMock = Mockery::mock(\Dxw\Iguana\Theme\Helpers::class);
         $helpersMock->shouldReceive('registerFunction')->once();
-        $pagination = new \Dxw\WhippetTheme\Theme\Pagination($helpersMock);
+        $pagination = new \Theme\Theme\Pagination($helpersMock);
     });
 
     describe('->pagination()', function () {

@@ -1,6 +1,6 @@
 <?php
 
-describe(\Dxw\WhippetTheme\Theme\Scripts::class, function () {
+describe(\Theme\Theme\Scripts::class, function () {
     beforeEach(function () {
         \WP_Mock::setUp();
         \WP_Mock::wpFunction('esc_url', [
@@ -9,7 +9,7 @@ describe(\Dxw\WhippetTheme\Theme\Scripts::class, function () {
             },
         ]);
         $this->helpers = new \Dxw\Iguana\Theme\Helpers();
-        $this->scripts = new \Dxw\WhippetTheme\Theme\Scripts($this->helpers);
+        $this->scripts = new \Theme\Theme\Scripts($this->helpers);
     });
 
     afterEach(function () {

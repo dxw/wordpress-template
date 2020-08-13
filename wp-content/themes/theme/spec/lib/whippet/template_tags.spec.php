@@ -1,10 +1,10 @@
 <?php
 
-describe(\Dxw\WhippetTheme\Lib\Whippet\TemplateTags::class, function () {
+describe(\Theme\Lib\Whippet\TemplateTags::class, function () {
     beforeEach(function () {
         \WP_Mock::setUp();
         $this->helpersMock = Mockery::mock(\Dxw\Iguana\Theme\Helpers::class);
-        $this->templateTags = new \Dxw\WhippetTheme\Lib\Whippet\TemplateTags(
+        $this->templateTags = new \Theme\Lib\Whippet\TemplateTags(
             $this->helpersMock
         );
     });

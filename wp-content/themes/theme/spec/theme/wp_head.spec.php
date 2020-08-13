@@ -1,9 +1,9 @@
 <?php
 
-describe(\Dxw\WhippetTheme\Theme\WpHead::class, function () {
+describe(\Theme\Theme\WpHead::class, function () {
     beforeEach(function () {
         \WP_Mock::setUp();
-        $this->wpHead = new \Dxw\WhippetTheme\Theme\WpHead();
+        $this->wpHead = new \Theme\Theme\WpHead();
     });
 
     afterEach(function () {

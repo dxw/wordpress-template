@@ -1,9 +1,9 @@
 <?php
 
-describe(\Dxw\WhippetTheme\Posts\CustomFields::class, function () {
+describe(\Theme\Posts\CustomFields::class, function () {
     beforeEach(function () {
         \WP_Mock::setUp();
-        $this->customFields = new \Dxw\WhippetTheme\Posts\CustomFields();
+        $this->customFields = new \Theme\Posts\CustomFields();
     });
 
     afterEach(function () {
