@@ -9,7 +9,7 @@ set -e
 # Config
 ##############
 title="Your site title here"
-theme=your-theme-slug
+theme=theme/templates
 plugins="a-space-separated list-of plugins-to-activate"
 content=/usr/src/app/setup/content
 
