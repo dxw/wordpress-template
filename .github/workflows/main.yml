@@ -1,0 +1,11 @@
+name: Install whippet dependencies
+
+on: push
+
+jobs:
+  whippet-deps-install:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: composer install --no-interaction
+      - run: vendor/bin/whippet deps install
