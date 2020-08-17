@@ -13,6 +13,10 @@ class Plugins implements Registerable
     {
         $this->required = $required;
         $this->path_to_wordpress = ABSPATH;
+        // For the tests
+        $this->requireOnce = function ($a) {
+            require_once($a);
+        };
     }
 
     public function register()
@@ -27,7 +31,7 @@ class Plugins implements Registerable
             return;
         }
         if (!function_exists('get_plugin_data')) {
-            require_once($this->path_to_wordpress . 'wp-admin/includes/plugin.php');
+            call_user_func($this->requireOnce, $this->path_to_wordpress . 'wp-admin/includes/plugin.php');
         }
         array_map([$this, 'addNotice'], $pluginsToActivate);
     }

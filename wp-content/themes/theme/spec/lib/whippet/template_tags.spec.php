@@ -1,16 +1,19 @@
 <?php
 
-describe(\Theme\Lib\Whippet\TemplateTags::class, function () {
+namespace Theme\Lib\Whippet;
+
+use \phpmock\mockery\PHPMockery;
+
+describe(TemplateTags::class, function () {
     beforeEach(function () {
-        \WP_Mock::setUp();
-        $this->helpersMock = Mockery::mock(\Dxw\Iguana\Theme\Helpers::class);
+        $this->helpersMock = \Mockery::mock(\Dxw\Iguana\Theme\Helpers::class);
         $this->templateTags = new \Theme\Lib\Whippet\TemplateTags(
             $this->helpersMock
         );
     });
 
     afterEach(function () {
-        \WP_Mock::tearDown();
+        \Mockery::close();
     });
 
     describe('->w_template_title()', function () {

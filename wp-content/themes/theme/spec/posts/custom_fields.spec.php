@@ -1,13 +1,16 @@
 <?php
 
-describe(\Theme\Posts\CustomFields::class, function () {
+namespace Theme\Posts;
+
+use \phpmock\mockery\PHPMockery;
+
+describe(CustomFields::class, function () {
     beforeEach(function () {
-        \WP_Mock::setUp();
         $this->customFields = new \Theme\Posts\CustomFields();
     });
 
     afterEach(function () {
-        \WP_Mock::tearDown();
+        \Mockery::close();
     });
 
     it('is registrable', function () {

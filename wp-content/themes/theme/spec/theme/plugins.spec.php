@@ -1,20 +1,27 @@
 <?php
 
-describe(\Theme\Theme\Plugins::class, function () {
+namespace Theme\Theme;
+
+use \phpmock\mockery\PHPMockery;
+
+describe(Plugins::class, function () {
     beforeEach(function () {
-        \WP_Mock::setUp();
-        \WP_Mock::wpFunction('esc_html', [
-            'return' => function ($a) {
-                return '_'.$a.'_';
-            },
-        ]);
+        PHPMockery::mock(__NAMESPACE__, 'esc_html')->andReturnUsing(function ($a) {
+            return '_'.$a.'_';
+        });
+        PHPMockery::mock(__NAMESPACE__, 'apply_filters')->andReturnUsing(function ($a, $b) {
+            return $b;
+        });
         if (!defined('WP_PLUGIN_DIR')) {
             define('WP_PLUGIN_DIR', '/path/to/plugins');
+        }
+        if (!defined('ABSPATH')) {
+            define('ABSPATH', '/abspath');
         }
     });
 
     afterEach(function () {
-        \WP_Mock::tearDown();
+        \Mockery::close();
     });
 
     it('is registrable', function () {
@@ -25,43 +32,33 @@ describe(\Theme\Theme\Plugins::class, function () {
     describe('->register()', function () {
         it('registers theme activation hook', function () {
             $plugins = new \Theme\Theme\Plugins([]);
-            \WP_Mock::expectActionAdded('after_switch_theme', [$plugins, 'checkDependencies']);
+            PHPMockery::mock(__NAMESPACE__, 'add_action')->with('after_switch_theme', [$plugins, 'checkDependencies'])->once();
             $plugins->register();
         });
     });
 
     describe('->checkDependencies()', function () {
         it('flags any required plugins that aren\'t activated', function () {
-            WP_Mock::wpFunction('get_option', [
-                'args' => ['active_plugins'],
-                'times' => 1,
-                'return' => [
-                    'some-other/plugin.php'
-                ]
+            PHPMockery::mock(__NAMESPACE__, 'get_option')->with('active_plugins')->times(1)->andReturn([
+                'some-other/plugin.php',
             ]);
-            WP_Mock::wpFunction('get_plugin_data', [
-                'args' => [WP_PLUGIN_DIR.'/path-to/a-required-plugin.php'],
-                'times' => 1,
-                'return' => [
-                    'Name' => 'A plugin'
-                ]
+            $getPluginData = PHPMockery::mock(__NAMESPACE__, 'get_plugin_data');
+            $getPluginData->with(WP_PLUGIN_DIR.'/path-to/a-required-plugin.php')->times(1)->andReturn([
+                'Name' => 'A plugin',
             ]);
-            WP_Mock::wpFunction('get_plugin_data', [
-                'args' => [WP_PLUGIN_DIR.'/advanced-custom-fields-pro/acf.php'],
-                'times' => 1,
-                'return' => [
-                    'Name' => 'Advanced Custom Fields Pro'
-                ]
+            $getPluginData->with(WP_PLUGIN_DIR.'/advanced-custom-fields-pro/acf.php')->times(1)->andReturn([
+                'Name' => 'Advanced Custom Fields Pro',
             ]);
-            WP_Mock::wpFunction('admin_url', [
-                'args' => ['plugins.php'],
-                'times' => 2,
-                'return' => 'http://localhost/wp-admin/plugins.php'
-            ]);
+            PHPMockery::mock(__NAMESPACE__, 'admin_url')->with('plugins.php')->times(2)->andReturn('http://localhost/wp-admin/plugins.php');
             $plugins = new \Theme\Theme\Plugins([
                 'path-to/a-required-plugin.php',
                 'advanced-custom-fields-pro/acf.php'
             ]);
+
+            // Prevent checkDependencies() from running require_once()
+            $plugins->requireOnce = function () {
+            };
+
             ob_start();
             $plugins->checkDependencies();
             $result = ob_get_contents();
@@ -76,19 +73,20 @@ describe(\Theme\Theme\Plugins::class, function () {
 
         context('when the plugins are already active', function () {
             it('doesn\'t print anything', function () {
-                WP_Mock::wpFunction('get_option', [
-                    'args' => ['active_plugins'],
-                    'times' => 1,
-                    'return' => [
-                        'some-other/plugin.php',
-                        'path-to/a-required-plugin.php',
-                        'advanced-custom-fields-pro/acf.php'
-                    ]
+                PHPMockery::mock(__NAMESPACE__, 'get_option')->with('active_plugins')->times(1)->andReturn([
+                    'some-other/plugin.php',
+                    'path-to/a-required-plugin.php',
+                    'advanced-custom-fields-pro/acf.php',
                 ]);
                 $plugins = new \Theme\Theme\Plugins([
                     'path-to/a-required-plugin.php',
                     'advanced-custom-fields-pro/acf.php'
                 ]);
+
+                // Prevent checkDependencies() from running require_once()
+                $plugins->requireOnce = function () {
+                };
+
                 ob_start();
                 $plugins->checkDependencies();
                 $result = ob_get_contents();
@@ -99,30 +97,23 @@ describe(\Theme\Theme\Plugins::class, function () {
 
         context('when there\'s no plugin data available', function () {
             it('displays the path of the plugin instead', function () {
-                WP_Mock::wpFunction('get_option', [
-                    'args' => ['active_plugins'],
-                    'times' => 1,
-                    'return' => [
-                        'some-other/plugin.php',
-                        'advanced-custom-fields-pro/acf.php'
-                    ]
+                PHPMockery::mock(__NAMESPACE__, 'get_option')->with('active_plugins')->times(1)->andReturn([
+                    'some-other/plugin.php',
+                    'advanced-custom-fields-pro/acf.php',
                 ]);
-                WP_Mock::wpFunction('get_plugin_data', [
-                    'args' => [WP_PLUGIN_DIR.'/path-to/a-required-plugin.php'],
-                    'times' => 1,
-                    'return' => [
-                        'Name' => ''
-                    ]
+                PHPMockery::mock(__NAMESPACE__, 'get_plugin_data')->with(WP_PLUGIN_DIR.'/path-to/a-required-plugin.php')->times(1)->andReturn([
+                    'Name' => '',
                 ]);
-                WP_Mock::wpFunction('admin_url', [
-                    'args' => ['plugins.php'],
-                    'times' => 1,
-                    'return' => 'http://localhost/wp-admin/plugins.php'
-                ]);
+                PHPMockery::mock(__NAMESPACE__, 'admin_url')->with('plugins.php')->times(1)->andReturn('http://localhost/wp-admin/plugins.php');
                 $plugins = new \Theme\Theme\Plugins([
                     'path-to/a-required-plugin.php',
                     'advanced-custom-fields-pro/acf.php'
                 ]);
+
+                // Prevent checkDependencies() from running require_once()
+                $plugins->requireOnce = function () {
+                };
+
                 ob_start();
                 $plugins->checkDependencies();
                 $result = ob_get_contents();

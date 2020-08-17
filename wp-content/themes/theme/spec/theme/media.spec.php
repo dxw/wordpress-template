@@ -1,13 +1,16 @@
 <?php
 
-describe(\Theme\Theme\Media::class, function () {
+namespace Theme\Theme;
+
+use \phpmock\mockery\PHPMockery;
+
+describe(Media::class, function () {
     beforeEach(function () {
-        \WP_Mock::setUp();
         $this->media = new \Theme\Theme\Media();
     });
 
     afterEach(function () {
-        \WP_Mock::tearDown();
+        \Mockery::close();
     });
 
     it('is registrable', function () {
@@ -16,15 +19,9 @@ describe(\Theme\Theme\Media::class, function () {
 
     describe('->register()', function () {
         it('registers thumbnail sizes', function () {
-            \WP_Mock::wpFunction('set_post_thumbnail_size', [
-                'args' => [\WP_Mock\Functions::type('int'), \WP_Mock\Functions::type('int'), \WP_Mock\Functions::type('bool')],
-                'times' => 1
-            ]);
+            PHPMockery::mock(__NAMESPACE__, 'set_post_thumbnail_size')->with(\Mockery::type('int'), \Mockery::type('int'), \Mockery::type('bool'))->times(1);
 
-            \WP_Mock::wpFunction('add_image_size', [
-                'args' => [\WP_Mock\Functions::type('string'), \WP_Mock\Functions::type('int'), \WP_Mock\Functions::type('int'), \WP_Mock\Functions::type('bool')],
-                'times' => 2
-            ]);
+            PHPMockery::mock(__NAMESPACE__, 'add_image_size')->with(\Mockery::type('string'), \Mockery::type('int'), \Mockery::type('int'), \Mockery::type('bool'))->times(2);
 
             $this->media->register();
         });

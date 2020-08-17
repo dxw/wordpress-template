@@ -1,13 +1,16 @@
 <?php
 
-describe(\Theme\Theme\Menus::class, function () {
+namespace Theme\Theme;
+
+use \phpmock\mockery\PHPMockery;
+
+describe(Menus::class, function () {
     beforeEach(function () {
-        \WP_Mock::setUp();
         $this->menus = new \Theme\Theme\Menus();
     });
 
     afterEach(function () {
-        \WP_Mock::tearDown();
+        \Mockery::close();
     });
 
     it('is registrable', function () {
@@ -16,10 +19,7 @@ describe(\Theme\Theme\Menus::class, function () {
 
     describe('->register()', function () {
         it('registers nav menus', function () {
-            \WP_Mock::wpFunction('register_nav_menu', [
-                'args' => [\WP_Mock\Functions::type('string'), \WP_Mock\Functions::type('string')],
-                'times' => 2
-            ]);
+            PHPMockery::mock(__NAMESPACE__, 'register_nav_menu')->with(\Mockery::type('string'), \Mockery::type('string'))->times(2);
 
             $this->menus->register();
         });

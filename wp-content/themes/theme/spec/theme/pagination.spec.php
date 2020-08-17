@@ -1,16 +1,16 @@
 <?php
 
-describe(\Theme\Theme\Pagination::class, function () {
-    beforeEach(function () {
-        \WP_Mock::setUp();
-    });
+namespace Theme\Theme;
 
+use \phpmock\mockery\PHPMockery;
+
+describe(Pagination::class, function () {
     afterEach(function () {
-        \WP_Mock::tearDown();
+        \Mockery::close();
     });
 
     it('registers the function in the constructor', function () {
-        $helpersMock = Mockery::mock(\Dxw\Iguana\Theme\Helpers::class);
+        $helpersMock = \Mockery::mock(\Dxw\Iguana\Theme\Helpers::class);
         $helpersMock->shouldReceive('registerFunction')->once();
         $pagination = new \Theme\Theme\Pagination($helpersMock);
     });

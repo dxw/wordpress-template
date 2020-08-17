@@ -1,13 +1,16 @@
 <?php
 
-describe(\Theme\Theme\Analytics::class, function () {
+namespace Theme\Theme;
+
+use \phpmock\mockery\PHPMockery;
+
+describe(Analytics::class, function () {
     beforeEach(function () {
-        \WP_Mock::setUp();
         $this->analytics = new \Theme\Theme\Analytics();
     });
 
     afterEach(function () {
-        \WP_Mock::tearDown();
+        \Mockery::close();
     });
 
     it('is registrable', function () {
@@ -16,7 +19,7 @@ describe(\Theme\Theme\Analytics::class, function () {
 
     describe('->register()', function () {
         it('registers actions', function () {
-            WP_Mock::expectActionAdded('wp_footer', [$this->analytics, 'wpFooter']);
+            PHPMockery::mock(__NAMESPACE__, 'add_action')->with('wp_footer', [$this->analytics, 'wpFooter'])->once();
             $this->analytics->register();
         });
     });

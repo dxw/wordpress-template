@@ -1,13 +1,16 @@
 <?php
 
-describe(\Theme\Theme\TitleTag::class, function () {
+namespace Theme\Theme;
+
+use \phpmock\mockery\PHPMockery;
+
+describe(TitleTag::class, function () {
     beforeEach(function () {
-        \WP_Mock::setUp();
         $this->titleTag = new \Theme\Theme\TitleTag();
     });
 
     afterEach(function () {
-        \WP_Mock::tearDown();
+        \Mockery::close();
     });
 
     it('is registrable', function () {
@@ -16,10 +19,7 @@ describe(\Theme\Theme\TitleTag::class, function () {
 
     describe('->register()', function () {
         it('adds support for title tag', function () {
-            \WP_Mock::wpFunction('add_theme_support', [
-                'args' => ['title-tag'],
-                'times' => 1,
-            ]);
+            PHPMockery::mock(__NAMESPACE__, 'add_theme_support')->with('title-tag')->times(1);
             $this->titleTag->register();
         });
     });

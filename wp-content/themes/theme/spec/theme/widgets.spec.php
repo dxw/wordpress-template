@@ -1,13 +1,16 @@
 <?php
 
-describe(\Theme\Theme\Widgets::class, function () {
+namespace Theme\Theme;
+
+use \phpmock\mockery\PHPMockery;
+
+describe(Widgets::class, function () {
     beforeEach(function () {
-        \WP_Mock::setUp();
         $this->widgets = new \Theme\Theme\Widgets();
     });
 
     afterEach(function () {
-        \WP_Mock::tearDown();
+        \Mockery::close();
     });
 
     it('is registrable', function () {
@@ -16,23 +19,18 @@ describe(\Theme\Theme\Widgets::class, function () {
 
     describe('->register()', function () {
         it('initialises the widgets', function () {
-            \WP_Mock::expectActionAdded('widgets_init', [$this->widgets, 'widgetsInit']);
+            PHPMockery::mock(__NAMESPACE__, 'add_action')->with('widgets_init', [$this->widgets, 'widgetsInit'])->once();
             $this->widgets->register();
         });
     });
 
     describe('->widgetsInit()', function () {
         it('registers any widgets in the theme ', function () {
-            \WP_Mock::wpFunction('__', [
-                'return' => function ($a) {
-                    return $a;
-                }
-            ]);
+            PHPMockery::mock(__NAMESPACE__, '__')->andReturnUsing(function ($a) {
+                return $a;
+            });
 
-            \WP_Mock::wpFunction('register_sidebar', [
-                'args' => [\WP_Mock\Functions::type('array')],
-                'times' => 2,
-            ]);
+            PHPMockery::mock(__NAMESPACE__, 'register_sidebar')->with(\Mockery::type('array'))->times(2);
 
             $this->widgets->widgetsInit();
         });

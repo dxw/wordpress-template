@@ -1,13 +1,16 @@
 <?php
 
-describe(\Theme\Posts\PostTypes::class, function () {
+namespace Theme\Posts;
+
+use \phpmock\mockery\PHPMockery;
+
+describe(PostTypes::class, function () {
     beforeEach(function () {
-        \WP_Mock::setUp();
         $this->postTypes = new \Theme\Posts\PostTypes();
     });
 
     afterEach(function () {
-        \WP_Mock::tearDown();
+        \Mockery::close();
     });
 
     it('is registrable', function () {

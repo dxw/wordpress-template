@@ -1,13 +1,16 @@
 <?php
 
-describe(\Theme\Theme\WpHead::class, function () {
+namespace Theme\Theme;
+
+use \phpmock\mockery\PHPMockery;
+
+describe(WpHead::class, function () {
     beforeEach(function () {
-        \WP_Mock::setUp();
         $this->wpHead = new \Theme\Theme\WpHead();
     });
 
     afterEach(function () {
-        \WP_Mock::tearDown();
+        \Mockery::close();
     });
 
     it('is registrable', function () {
@@ -16,7 +19,7 @@ describe(\Theme\Theme\WpHead::class, function () {
 
     describe('->register()', function () {
         it('adds actions', function () {
-            \WP_Mock::expectActionAdded('init', [$this->wpHead, 'init']);
+            PHPMockery::mock(__NAMESPACE__, 'add_action')->with('init', [$this->wpHead, 'init'])->once();
             $this->wpHead->register();
         });
     });
@@ -37,11 +40,9 @@ describe(\Theme\Theme\WpHead::class, function () {
                 ['wp_head', 'adjacent_posts_rel_link', 10, 0],
             ];
 
+            $removeAction = PHPMockery::mock(__NAMESPACE__, 'remove_action');
             foreach ($actions as $args) {
-                \WP_Mock::wpFunction('remove_action', [
-                    'args' => $args,
-                    'times' => 1
-                ]);
+                $removeAction->with(...$args)->times(1);
             }
             $this->wpHead->init();
         });
