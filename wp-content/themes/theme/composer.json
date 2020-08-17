@@ -13,7 +13,7 @@
     ],
     "config": {
       "platform": {
-        "php": "7.2.24"
+        "php": "7.4.3"
       }
     },
     "require-dev": {
@@ -34,6 +34,7 @@
         "post-update-cmd": "vendor/bin/phar-install"
     },
     "require": {
+        "php": "^7.4",
         "dxw/pagination": "^1.0",
         "dxw/iguana": "^1.0",
         "dxw/iguana-theme": "^1.0",
