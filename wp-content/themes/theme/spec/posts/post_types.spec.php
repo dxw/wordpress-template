@@ -1,17 +1,14 @@
 <?php
 
-describe(\Theme\Posts\PostTypes::class, function () {
-    beforeEach(function () {
-        \WP_Mock::setUp();
-        $this->postTypes = new \Theme\Posts\PostTypes();
-    });
+namespace Theme\Posts;
 
-    afterEach(function () {
-        \WP_Mock::tearDown();
+describe(PostTypes::class, function () {
+    beforeEach(function () {
+        $this->postTypes = new PostTypes();
     });
 
     it('is registrable', function () {
-        expect($this->postTypes)->to->be->an->instanceof(\Dxw\Iguana\Registerable::class);
+        expect($this->postTypes)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
     });
 
     describe('->register()', function () {

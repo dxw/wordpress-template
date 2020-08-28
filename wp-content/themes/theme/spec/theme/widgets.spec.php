@@ -1,38 +1,34 @@
 <?php
 
-describe(\Theme\Theme\Widgets::class, function () {
-    beforeEach(function () {
-        \WP_Mock::setUp();
-        $this->widgets = new \Theme\Theme\Widgets();
-    });
+namespace Theme\Theme;
 
-    afterEach(function () {
-        \WP_Mock::tearDown();
+use Kahlan\Arg;
+
+describe(Widgets::class, function () {
+    beforeEach(function () {
+        $this->widgets = new Widgets();
     });
 
     it('is registrable', function () {
-        expect($this->widgets)->to->be->an->instanceof(\Dxw\Iguana\Registerable::class);
+        expect($this->widgets)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
     });
 
     describe('->register()', function () {
         it('initialises the widgets', function () {
-            \WP_Mock::expectActionAdded('widgets_init', [$this->widgets, 'widgetsInit']);
+            allow('add_action')->toBeCalled();
+            expect('add_action')->toBeCalled()->with('widgets_init', [$this->widgets, 'widgetsInit']);
             $this->widgets->register();
         });
     });
 
     describe('->widgetsInit()', function () {
         it('registers any widgets in the theme ', function () {
-            \WP_Mock::wpFunction('__', [
-                'return' => function ($a) {
-                    return $a;
-                }
-            ]);
+            allow('__')->toBeCalled()->andRun(function ($a) {
+                return $a;
+            });
 
-            \WP_Mock::wpFunction('register_sidebar', [
-                'args' => [\WP_Mock\Functions::type('array')],
-                'times' => 2,
-            ]);
+            allow('register_sidebar')->toBeCalled();
+            expect('register_sidebar')->toBeCalled()->with(Arg::toBeA('array'))->times(2);
 
             $this->widgets->widgetsInit();
         });

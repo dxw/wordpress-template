@@ -1,25 +1,20 @@
 <?php
 
-describe(\Theme\Theme\TitleTag::class, function () {
-    beforeEach(function () {
-        \WP_Mock::setUp();
-        $this->titleTag = new \Theme\Theme\TitleTag();
-    });
+namespace Theme\Theme;
 
-    afterEach(function () {
-        \WP_Mock::tearDown();
+describe(TitleTag::class, function () {
+    beforeEach(function () {
+        $this->titleTag = new TitleTag();
     });
 
     it('is registrable', function () {
-        expect($this->titleTag)->to->be->an->instanceof(\Dxw\Iguana\Registerable::class);
+        expect($this->titleTag)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
     });
 
     describe('->register()', function () {
         it('adds support for title tag', function () {
-            \WP_Mock::wpFunction('add_theme_support', [
-                'args' => ['title-tag'],
-                'times' => 1,
-            ]);
+            allow('add_theme_support')->toBeCalled();
+            expect('add_theme_support')->toBeCalled()->with('title-tag');
             $this->titleTag->register();
         });
     });

@@ -1,25 +1,22 @@
 <?php
 
-describe(\Theme\Theme\Menus::class, function () {
-    beforeEach(function () {
-        \WP_Mock::setUp();
-        $this->menus = new \Theme\Theme\Menus();
-    });
+namespace Theme\Theme;
 
-    afterEach(function () {
-        \WP_Mock::tearDown();
+use Kahlan\Arg;
+
+describe(Menus::class, function () {
+    beforeEach(function () {
+        $this->menus = new Menus();
     });
 
     it('is registrable', function () {
-        expect($this->menus)->to->be->an->instanceof(\Dxw\Iguana\Registerable::class);
+        expect($this->menus)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
     });
 
     describe('->register()', function () {
         it('registers nav menus', function () {
-            \WP_Mock::wpFunction('register_nav_menu', [
-                'args' => [\WP_Mock\Functions::type('string'), \WP_Mock\Functions::type('string')],
-                'times' => 2
-            ]);
+            allow('register_nav_menu')->toBeCalled();
+            expect('register_nav_menu')->toBeCalled()->with(Arg::toBeA('string'), Arg::toBeA('string'))->times(2);
 
             $this->menus->register();
         });

@@ -7,12 +7,12 @@ defaults:
     working-directory: wp-content/themes/theme
 
 jobs:
-  peridot:
+  kahlan:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - run: composer install --no-interaction
-      - run: vendor/bin/peridot spec
+      - run: vendor/bin/kahlan
   php-cs-fixer:
     runs-on: ubuntu-20.04
     steps:
