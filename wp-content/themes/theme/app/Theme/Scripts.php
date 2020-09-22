@@ -10,23 +10,23 @@ class Scripts implements \Dxw\Iguana\Registerable
         $helpers->registerFunction('getAssetPath', [$this, 'getAssetPath']);
     }
 
-    public function register()
+    public function register() : void
     {
         add_action('wp_enqueue_scripts', [$this, 'wpEnqueueScripts']);
         add_action('wp_print_scripts', [$this, 'wpPrintScripts']);
     }
 
-    public function getAssetPath($path)
+    public function getAssetPath(string $path) : string
     {
         return dirname(get_stylesheet_directory_uri()).'/static/'.$path;
     }
 
-    public function assetPath($path)
+    public function assetPath(string $path) : void
     {
         echo esc_url($this->getAssetPath($path));
     }
 
-    public function wpEnqueueScripts()
+    public function wpEnqueueScripts() : void
     {
         //
         // Do not add javascript to your theme here, unless you're sure you should.
@@ -51,7 +51,7 @@ class Scripts implements \Dxw\Iguana\Registerable
         wp_enqueue_style('main', $this->getAssetPath('main.min.css'));
     }
 
-    public function wpPrintScripts()
+    public function wpPrintScripts() : void
     {
         ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

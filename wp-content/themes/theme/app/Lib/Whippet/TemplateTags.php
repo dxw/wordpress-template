@@ -9,14 +9,14 @@ class TemplateTags
         $helpers->registerFunction('w_template_title', [$this, 'w_template_title']);
     }
 
-    public static function w_template_warning()
+    public static function w_template_warning() : void
     {
         ?>
         <div class="whippet alert template-warning" style="background: rgb(255,100,100); width: 100%; padding: 10px;"><h1>You're using a fallback template: <?php echo basename(\Theme\Lib\Whippet\Layout::$wordpress_template); ?></h1> <p>Did you really mean to? If you can, define a specific template and use it. Like single-post.php.</p></div>
         <?php
     }
 
-    public function w_template_title()
+    public function w_template_title() : string
     {
         if (is_home()) {
             if (get_option('page_for_posts', true)) {

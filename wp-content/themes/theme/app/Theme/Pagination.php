@@ -9,7 +9,7 @@ class Pagination
         $helpers->registerFunction('pagination', [$this, 'pagination']);
     }
 
-    public function pagination($q = null, $return = false)
+    public function pagination(\WP_Query $q = null) : void
     {
         global $wp_query;
         global $paged;
@@ -32,16 +32,12 @@ class Pagination
             return;
         }
 
-        $pagination = new \Dxw\Pagination($paged, $max, 2, 1, function ($n) use ($args) {
+        $pagination = new \Dxw\Pagination($paged, $max, 2, 1, function (int $n) use ($args) : string {
             $args['paged'] = $n;
 
             return add_query_arg($args, get_bloginfo('url'));
         });
 
-        if ($return) {
-            return $pagination->render();
-        } else {
-            echo $pagination->render();
-        }
+        echo $pagination->render();
     }
 }

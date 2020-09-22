@@ -7,7 +7,7 @@ class Widgets implements \Dxw\Iguana\Registerable
     //
     // Register sidebars.
     //
-    public function widgetsInit()
+    public function widgetsInit() : void
     {
         register_sidebar([
             'name' => __('Primary'),
@@ -28,7 +28,7 @@ class Widgets implements \Dxw\Iguana\Registerable
         ]);
     }
 
-    public function register()
+    public function register() : void
     {
         add_action('widgets_init', [$this, 'widgetsInit']);
     }

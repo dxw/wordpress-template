@@ -4,12 +4,12 @@ namespace Theme\Theme;
 
 class Analytics implements \Dxw\Iguana\Registerable
 {
-    public function register()
+    public function register() : void
     {
         add_action('wp_footer', [$this, 'wpFooter']);
     }
 
-    public function wpFooter()
+    public function wpFooter() : void
     {
         ?>
         <script>

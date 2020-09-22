@@ -4,18 +4,6 @@
     <directory name="app"/>
     <ignoreFiles>
       <file name="vendor.phar"/>
-      <file name="app/Posts/CustomFields.php"/>
-      <file name="app/Posts/PostTypes.php"/>
-      <file name="app/Theme/Widgets.php"/>
-      <file name="app/Theme/Pagination.php"/>
-      <file name="app/Theme/Scripts.php"/>
-      <file name="app/Theme/Plugins.php"/>
-      <file name="app/Theme/Menus.php"/>
-      <file name="app/Theme/WpHead.php"/>
-      <file name="app/Theme/Analytics.php"/>
-      <file name="app/Theme/TitleTag.php"/>
-      <file name="app/Theme/Media.php"/>
-      <file name="app/Lib/Whippet/TemplateTags.php"/>
     </ignoreFiles>
   </projectFiles>
   <issueHandlers>
@@ -29,5 +17,11 @@
         <file name="app/di.php"/>
       </errorLevel>
     </UndefinedGlobalVariable>
+    <!-- This seems to be due to using require() with a variable -->
+    <UnresolvableInclude>
+      <errorLevel type="suppress">
+        <file name="app/Theme/Plugins.php"/>
+      </errorLevel>
+    </UnresolvableInclude>
   </issueHandlers>
 </psalm>

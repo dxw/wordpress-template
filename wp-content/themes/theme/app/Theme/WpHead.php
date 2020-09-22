@@ -4,12 +4,12 @@ namespace Theme\Theme;
 
 class WpHead implements \Dxw\Iguana\Registerable
 {
-    public function register()
+    public function register() : void
     {
         add_action('init', [$this, 'init']);
     }
 
-    public function init()
+    public function init() : void
     {
         // Remove Emoji script
         remove_action('wp_head', 'print_emoji_detection_script', 7);

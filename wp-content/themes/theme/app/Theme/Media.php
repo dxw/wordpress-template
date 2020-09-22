@@ -4,7 +4,7 @@ namespace Theme\Theme;
 
 class Media implements \Dxw\Iguana\Registerable
 {
-    public function register()
+    public function register() : void
     {
         set_post_thumbnail_size(150, 150, true);
         add_image_size('medium', 200, 200, true);
