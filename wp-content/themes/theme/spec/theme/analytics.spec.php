@@ -14,6 +14,7 @@ describe(Analytics::class, function () {
     describe('->register()', function () {
         it('registers actions', function () {
             allow('add_action')->toBeCalled();
+            expect('add_action')->toBeCalled()->once();
             expect('add_action')->toBeCalled()->with('wp_footer', [$this->analytics, 'wpFooter']);
             $this->analytics->register();
         });

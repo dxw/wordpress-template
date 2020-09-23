@@ -16,6 +16,7 @@ describe(Widgets::class, function () {
     describe('->register()', function () {
         it('initialises the widgets', function () {
             allow('add_action')->toBeCalled();
+            expect('add_action')->toBeCalled()->once();
             expect('add_action')->toBeCalled()->with('widgets_init', [$this->widgets, 'widgetsInit']);
             $this->widgets->register();
         });
@@ -28,6 +29,7 @@ describe(Widgets::class, function () {
             });
 
             allow('register_sidebar')->toBeCalled();
+            expect('register_sidebar')->toBeCalled()->times(2);
             expect('register_sidebar')->toBeCalled()->with(Arg::toBeA('array'))->times(2);
 
             $this->widgets->widgetsInit();

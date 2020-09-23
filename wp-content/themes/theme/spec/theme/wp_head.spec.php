@@ -14,6 +14,7 @@ describe(WpHead::class, function () {
     describe('->register()', function () {
         it('adds actions', function () {
             allow('add_action')->toBeCalled();
+            expect('add_action')->toBeCalled()->once();
             expect('add_action')->toBeCalled()->with('init', [$this->wpHead, 'init']);
             $this->wpHead->register();
         });
@@ -35,8 +36,9 @@ describe(WpHead::class, function () {
                 ['wp_head', 'adjacent_posts_rel_link', 10, 0],
             ];
 
+            allow('remove_action')->toBeCalled();
+            expect('remove_action')->toBeCalled()->times(count($actions));
             foreach ($actions as $args) {
-                allow('remove_action')->toBeCalled();
                 expect('remove_action')->toBeCalled()->with(...$args);
             }
             $this->wpHead->init();

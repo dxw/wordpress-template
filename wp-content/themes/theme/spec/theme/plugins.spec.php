@@ -32,6 +32,7 @@ describe(Plugins::class, function () {
         it('registers theme activation hook', function () {
             $plugins = new Plugins([]);
             allow('add_action')->toBeCalled();
+            expect('add_action')->toBeCalled()->once();
             expect('add_action')->toBeCalled()->with('after_switch_theme', [$plugins, 'checkDependencies']);
             $plugins->register();
         });

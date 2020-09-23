@@ -18,6 +18,7 @@ describe(Scripts::class, function () {
     describe('->register()', function () {
         it('registers nav scripts', function () {
             allow('add_action')->toBeCalled();
+            expect('add_action')->toBeCalled()->times(2);
             expect('add_action')->toBeCalled()->with('wp_enqueue_scripts', [$this->scripts, 'wpEnqueueScripts']);
             expect('add_action')->toBeCalled()->with('wp_print_scripts', [$this->scripts, 'wpPrintScripts']);
 
@@ -46,9 +47,11 @@ describe(Scripts::class, function () {
             allow('get_stylesheet_directory_uri')->toBeCalled()->with()->andReturn('http://a.invalid/zzz');
 
             allow('wp_deregister_script')->toBeCalled();
+            expect('wp_deregister_script')->toBeCalled()->once();
             expect('wp_deregister_script')->toBeCalled()->with('jquery');
 
             allow('wp_enqueue_script')->toBeCalled();
+            expect('wp_enqueue_script')->toBeCalled()->times(3);
             expect('wp_enqueue_script')->toBeCalled()->with('jquery', 'http://a.invalid/static/lib/jquery.min.js');
 
             expect('wp_enqueue_script')->toBeCalled()->with('modernizr', 'http://a.invalid/static/lib/modernizr.min.js');
@@ -56,6 +59,7 @@ describe(Scripts::class, function () {
             expect('wp_enqueue_script')->toBeCalled()->with('main', 'http://a.invalid/static/main.min.js', ['jquery', 'modernizr'], '', true);
 
             allow('wp_enqueue_style')->toBeCalled();
+            expect('wp_enqueue_style')->toBeCalled()->once();
             expect('wp_enqueue_style')->toBeCalled()->with('main', 'http://a.invalid/static/main.min.css');
 
             $this->scripts->wpEnqueueScripts();

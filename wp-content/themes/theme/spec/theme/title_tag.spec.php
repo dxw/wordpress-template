@@ -14,6 +14,7 @@ describe(TitleTag::class, function () {
     describe('->register()', function () {
         it('adds support for title tag', function () {
             allow('add_theme_support')->toBeCalled();
+            expect('add_theme_support')->toBeCalled()->once();
             expect('add_theme_support')->toBeCalled()->with('title-tag');
             $this->titleTag->register();
         });
