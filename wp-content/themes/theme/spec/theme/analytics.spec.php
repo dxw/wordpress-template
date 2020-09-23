@@ -1,22 +1,21 @@
 <?php
 
-describe(\Theme\Theme\Analytics::class, function () {
-    beforeEach(function () {
-        \WP_Mock::setUp();
-        $this->analytics = new \Theme\Theme\Analytics();
-    });
+namespace Theme\Theme;
 
-    afterEach(function () {
-        \WP_Mock::tearDown();
+describe(Analytics::class, function () {
+    beforeEach(function () {
+        $this->analytics = new Analytics();
     });
 
     it('is registrable', function () {
-        expect($this->analytics)->to->be->an->instanceof(\Dxw\Iguana\Registerable::class);
+        expect($this->analytics)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
     });
 
     describe('->register()', function () {
         it('registers actions', function () {
-            WP_Mock::expectActionAdded('wp_footer', [$this->analytics, 'wpFooter']);
+            allow('add_action')->toBeCalled();
+            expect('add_action')->toBeCalled()->once();
+            expect('add_action')->toBeCalled()->with('wp_footer', [$this->analytics, 'wpFooter']);
             $this->analytics->register();
         });
     });
@@ -28,7 +27,7 @@ describe(\Theme\Theme\Analytics::class, function () {
             $result = ob_get_contents();
             ob_end_clean();
             $result = str_replace(["\r", "\n"], '', $result);
-            expect(preg_match('/^\s*<script>.*<\\/script>\s*$/', $result))->to->equal(1);
+            expect(preg_match('/^\s*<script>.*<\\/script>\s*$/', $result))->toEqual(1);
         });
     });
 });

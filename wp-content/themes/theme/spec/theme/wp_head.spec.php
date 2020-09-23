@@ -1,22 +1,21 @@
 <?php
 
-describe(\Theme\Theme\WpHead::class, function () {
-    beforeEach(function () {
-        \WP_Mock::setUp();
-        $this->wpHead = new \Theme\Theme\WpHead();
-    });
+namespace Theme\Theme;
 
-    afterEach(function () {
-        \WP_Mock::tearDown();
+describe(WpHead::class, function () {
+    beforeEach(function () {
+        $this->wpHead = new WpHead();
     });
 
     it('is registrable', function () {
-        expect($this->wpHead)->to->be->an->instanceof(\Dxw\Iguana\Registerable::class);
+        expect($this->wpHead)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
     });
 
     describe('->register()', function () {
         it('adds actions', function () {
-            \WP_Mock::expectActionAdded('init', [$this->wpHead, 'init']);
+            allow('add_action')->toBeCalled();
+            expect('add_action')->toBeCalled()->once();
+            expect('add_action')->toBeCalled()->with('init', [$this->wpHead, 'init']);
             $this->wpHead->register();
         });
     });
@@ -37,11 +36,10 @@ describe(\Theme\Theme\WpHead::class, function () {
                 ['wp_head', 'adjacent_posts_rel_link', 10, 0],
             ];
 
+            allow('remove_action')->toBeCalled();
+            expect('remove_action')->toBeCalled()->times(count($actions));
             foreach ($actions as $args) {
-                \WP_Mock::wpFunction('remove_action', [
-                    'args' => $args,
-                    'times' => 1
-                ]);
+                expect('remove_action')->toBeCalled()->with(...$args);
             }
             $this->wpHead->init();
         });

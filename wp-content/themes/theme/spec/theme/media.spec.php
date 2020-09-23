@@ -1,30 +1,27 @@
 <?php
 
-describe(\Theme\Theme\Media::class, function () {
-    beforeEach(function () {
-        \WP_Mock::setUp();
-        $this->media = new \Theme\Theme\Media();
-    });
+namespace Theme\Theme;
 
-    afterEach(function () {
-        \WP_Mock::tearDown();
+use Kahlan\Arg;
+
+describe(Media::class, function () {
+    beforeEach(function () {
+        $this->media = new Media();
     });
 
     it('is registrable', function () {
-        expect($this->media)->to->be->an->instanceof(\Dxw\Iguana\Registerable::class);
+        expect($this->media)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
     });
 
     describe('->register()', function () {
         it('registers thumbnail sizes', function () {
-            \WP_Mock::wpFunction('set_post_thumbnail_size', [
-                'args' => [\WP_Mock\Functions::type('int'), \WP_Mock\Functions::type('int'), \WP_Mock\Functions::type('bool')],
-                'times' => 1
-            ]);
+            allow('set_post_thumbnail_size')->toBeCalled();
+            expect('set_post_thumbnail_size')->toBeCalled()->once();
+            expect('set_post_thumbnail_size')->toBeCalled()->with(Arg::toBeA('int'), Arg::toBeA('int'), Arg::toBeA('bool'));
 
-            \WP_Mock::wpFunction('add_image_size', [
-                'args' => [\WP_Mock\Functions::type('string'), \WP_Mock\Functions::type('int'), \WP_Mock\Functions::type('int'), \WP_Mock\Functions::type('bool')],
-                'times' => 2
-            ]);
+            allow('add_image_size')->toBeCalled();
+            expect('add_image_size')->toBeCalled()->times(2);
+            expect('add_image_size')->toBeCalled()->with(Arg::toBeA('string'), Arg::toBeA('int'), Arg::toBeA('int'), Arg::toBeA('bool'));
 
             $this->media->register();
         });

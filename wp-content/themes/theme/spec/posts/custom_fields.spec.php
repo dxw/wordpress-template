@@ -1,17 +1,14 @@
 <?php
 
-describe(\Theme\Posts\CustomFields::class, function () {
-    beforeEach(function () {
-        \WP_Mock::setUp();
-        $this->customFields = new \Theme\Posts\CustomFields();
-    });
+namespace Theme\Posts;
 
-    afterEach(function () {
-        \WP_Mock::tearDown();
+describe(CustomFields::class, function () {
+    beforeEach(function () {
+        $this->customFields = new CustomFields();
     });
 
     it('is registrable', function () {
-        expect($this->customFields)->to->be->an->instanceof(\Dxw\Iguana\Registerable::class);
+        expect($this->customFields)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
     });
 
     describe('->register()', function () {
