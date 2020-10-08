@@ -5,13 +5,14 @@ on: push
 defaults:
   run:
     working-directory: wp-content/themes/theme
-    runs-on: ubuntu-20.04
     strategy:
       matrix:
+        runs-on: ['ubuntu-20.04']
         php-versions: ['7.2', '7.3', '7.4']
 
 jobs:
   kahlan:
+    runs-on: {{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@v2
       - uses: shivammathur/setup-php@v2
@@ -19,6 +20,7 @@ jobs:
           php-version: {{ matrix.php-versions }}
       - run: vendor/bin/kahlan
   php-cs-fixer:
+    runs-on: {{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@v2
       - uses: shivammathur/setup-php@v2
