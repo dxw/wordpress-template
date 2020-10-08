@@ -5,17 +5,23 @@ on: push
 defaults:
   run:
     working-directory: wp-content/themes/theme
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        php-versions: ['7.2', '7.3', '7.4']
 
 jobs:
   kahlan:
-    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - run: composer install --no-interaction
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: {{ matrix.php-versions }}
       - run: vendor/bin/kahlan
   php-cs-fixer:
-    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - run: composer install --no-interaction
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: {{ matrix.php-versions }}
       - run: vendor/bin/php-cs-fixer fix --dry-run -v --diff
