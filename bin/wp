@@ -16,4 +16,4 @@ CONTAINER=$(docker-compose ps -q wordpress)
 #
 # Issue: https://github.com/docker/compose/issues/3352
 
-docker exec -i "${FLAGS}" "${CONTAINER}" wp "${@}"
+docker exec -i "${FLAGS}" "${CONTAINER}" /usr/src/app/vendor/bin/wp --allow-root "${@}"
