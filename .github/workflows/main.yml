@@ -1,12 +1,8 @@
-# TODO: Give GitHub Actions access to our GitLab and enable this test
-# name: Install whippet dependencies
-
-# on: push
-
-# jobs:
-#   whippet-deps-install:
-#     runs-on: ubuntu-20.04
-#     steps:
-#       - uses: actions/checkout@v2
-#       - run: composer install --no-interaction
-#       - run: vendor/bin/whippet deps install
+jobs:
+  shellcheck:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: apt-get update
+      - run: apt-get install -y shellcheck
+      - run: shellcheck
