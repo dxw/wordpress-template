@@ -6,3 +6,9 @@ jobs:
       - run: apt-get update
       - run: apt-get install -y shellcheck
       - run: shellcheck
+
+  composer-install:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: composer install --no-interaction
