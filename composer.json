@@ -5,6 +5,7 @@
         }
     },
     "require-dev": {
-        "dxw/whippet": "^1.0"
+        "dxw/whippet": "^1.0",
+        "wp-cli/wp-cli-bundle": "^2.4"
     }
 }
