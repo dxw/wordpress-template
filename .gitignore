@@ -1,13 +1,12 @@
 /vendor/
 /wp-content/whippet-wp-config.php
 /wp-content/uploads
-/wp-content/plugins/advanced-custom-fields-pro
 
 # macOS
 .DS_Store
-
 # IDEs
 .idea
-
 # Other node package managers
 package-lock.json
+/wp-content/plugins/akismet
+/wp-content/plugins/advanced-custom-fields-pro
