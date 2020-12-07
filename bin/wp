@@ -8,7 +8,7 @@ if [ -t 0 ]; then
   FLAGS=-t
 fi
 
-CONTAINER=`docker-compose ps -q wordpress`
+CONTAINER=$(docker-compose ps -q wordpress)
 
 # We can't use docker-compose here because docker-compose exec is equivalent
 # to docker exec -ti and docker-compose exec -T is equivalent to
@@ -16,4 +16,4 @@ CONTAINER=`docker-compose ps -q wordpress`
 #
 # Issue: https://github.com/docker/compose/issues/3352
 
-docker exec -i ${FLAGS} ${CONTAINER} wp "${@}"
+docker exec -i "${FLAGS}" "${CONTAINER}" wp "${@}"

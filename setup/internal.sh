@@ -19,13 +19,13 @@ wp core install --skip-email --admin_user=admin --admin_password=admin --admin_e
 
 for plugin in $plugins
 do
-  if wp plugin is-installed $plugin
+  if wp plugin is-installed "$plugin"
   then
-    wp plugin activate $plugin --network
+    wp plugin activate "$plugin" --network
     # TODO: Uncomment for multisite
-    #wp plugin activate $plugin --network
+    #wp plugin activate "$plugin" --network
   else
-      echo "\033[96mWarning:\033[0m Plugin '"$plugin"' could not be found. Have you installed it?"
+      echo "\033[96mWarning:\033[0m Plugin '$plugin' could not be found. Have you installed it?"
   fi
 done
 
@@ -35,14 +35,14 @@ then
   #wp theme enable --network $theme
   wp theme activate $theme
 else
-  echo "\033[96mWarning:\033[0m Theme '"$theme"' could not be found. Have you installed it?"
+  echo "\033[96mWarning:\033[0m Theme '$theme' could not be found. Have you installed it?"
 fi
 
 import() {
-  for file in $content/*.xml
+  for file in "$content"/*.xml
   do
     echo "Importing $file..."
-    wp import $file --authors=skip
+    wp import "$file" --authors=skip
   done
 }
 
