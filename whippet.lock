@@ -1,10 +1,15 @@
 {
-    "hash": "d257e677c20e8ea75bd84ccdcd0daba929e3ebe9",
+    "hash": "d116ca460bacca13ff9769207f8ba84f8a8c9355",
     "plugins": [
+        {
+            "name": "akismet",
+            "src": "git@git.govpress.com:wordpress-plugins/akismet",
+            "revision": "3e6e48e4118bc264192b65f9f8712af80caf5bf8"
+        },
         {
             "name": "advanced-custom-fields-pro",
             "src": "git@git.govpress.com:wordpress-plugins/advanced-custom-fields-pro",
-            "revision": "7cd44e91fdbf55b127ee0dbf8ec3a39c6660f6dd"
+            "revision": "a95104d4c4a71d05640e4cb09c152596d171be8f"
         }
     ]
 }
