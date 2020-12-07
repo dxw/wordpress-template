@@ -1,3 +1,7 @@
+name: Shellcheck
+
+on: push
+
 jobs:
   shellcheck:
     runs-on: ubuntu-20.04
