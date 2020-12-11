@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<psalm>
+  <projectFiles>
+    <directory name="app"/>
+    <ignoreFiles>
+      <file name="vendor.phar"/>
+    </ignoreFiles>
+  </projectFiles>
+  <issueHandlers>
+    <!-- These three will be tripped constantly because WordPress -->
+    <UndefinedFunction errorLevel="suppress"/>
+    <UndefinedConstant errorLevel="suppress"/>
+    <UndefinedClass errorLevel="suppress"/>
+    <!-- Suppress the complaint about $registrar just in this file -->
+    <UndefinedGlobalVariable>
+      <errorLevel type="suppress">
+        <file name="app/di.php"/>
+      </errorLevel>
+    </UndefinedGlobalVariable>
+    <!-- This seems to be due to using require() with a variable -->
+    <UnresolvableInclude>
+      <errorLevel type="suppress">
+        <file name="app/Theme/Plugins.php"/>
+      </errorLevel>
+    </UnresolvableInclude>
+  </issueHandlers>
+</psalm>

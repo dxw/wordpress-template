@@ -6,8 +6,8 @@ use Dxw\Iguana\Registerable;
 
 class Plugins implements Registerable
 {
-    protected $required;
-    protected $path_to_wordpress;
+    protected array $required;
+    protected string $path_to_wordpress;
 
     public function __construct(array $required = [])
     {
@@ -15,12 +15,12 @@ class Plugins implements Registerable
         $this->path_to_wordpress = ABSPATH;
     }
 
-    public function register()
+    public function register() : void
     {
         add_action('after_switch_theme', [$this, 'checkDependencies']);
     }
 
-    public function checkDependencies()
+    public function checkDependencies() : void
     {
         $pluginsToActivate = $this->findPluginsToActivate();
         if (empty($pluginsToActivate)) {
@@ -32,7 +32,7 @@ class Plugins implements Registerable
         array_map([$this, 'addNotice'], $pluginsToActivate);
     }
 
-    public function addNotice($plugin)
+    public function addNotice(string $plugin) : void
     {
         $pluginData = get_plugin_data(WP_PLUGIN_DIR.'/'.$plugin);
         $pluginName = !empty($pluginData['Name']) ? $pluginData['Name'] : $plugin; ?>
@@ -45,10 +45,7 @@ class Plugins implements Registerable
         <?php
     }
 
-    /**
-     * @return array
-     */
-    private function findPluginsToActivate()
+    private function findPluginsToActivate() : array
     {
         $pluginsToActivate = array_diff(
             $this->required,
