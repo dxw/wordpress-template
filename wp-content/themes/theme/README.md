@@ -1,10 +1,10 @@
-# whippet-theme-template
+# wordpress-theme-template
 
 A template with everything you need to make a modern WordPress theme.
 
 ## Installation
 
-Generate a new theme via [whippet](https://github.com/dxw/whippet)
+You can generate a standalone version of this theme template via [whippet](https://github.com/dxw/whippet)
 
 - `whippet generate theme --d=directory-name`
 
@@ -18,7 +18,7 @@ This theme template makes use of [iguana](https://github.com/dxw/iguana) for dep
 
 ## Code layout
 
-- PHP for templates lives in `templates/`, everything else lives in `app/` and is tested with [Peridot](http://peridot-php.github.io/) tests that live in `spec/`.
+- PHP for templates lives in `templates/`, everything else lives in `app/` and is tested with [Kahlan](https://github.com/kahlan/kahlan) tests that live in `spec/`.
 - The main JavaScript file is `assets/js/main.js`. It is compiled into `static/main.min.js` with [browserify](http://browserify.org/) so `main.js` is typically just a list of `require()`s.
 - The main SCSS file is `assets/scss/main.scss`. It is compiled into `static/main.min.css` with [SASS](http://sass-lang.com/) so `main.scss` is typically just a list of `@import`s.
 - Images live in `assets/img/`. They are pre-processed/minified into `static/img/`.
@@ -35,6 +35,10 @@ This theme template makes use of [iguana](https://github.com/dxw/iguana) for dep
 Run PHP tests:
 
     vendor/bin/peridot spec
+
+Run PHP linter:
+
+    vendor/bin/php-cs-fixer fix
 
 Build JS/CSS:
 
