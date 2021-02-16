@@ -1,12 +1,9 @@
 # Whippet
 
-This site is built using Whippet, created by @thedxw. For more information, visit https://github.com/dxw/whippet.
+This site is built using Whippet and the WordPress Template, created and maintained by @dxw. For more information, visit https://github.com/dxw/whippet and https://github.com/dxw/wordpress-template/.
 
 You should replace this file with one that gives your team credit for the site you've built!
 
 (But if you'd like to keep this one too, that would be terribly nice.)
 
-## Whippet is maintained by...
-
-* Harry Metcalfe (@harrym)
-* Mallory Adams
+You can read more about dxw at https://dxw.com
