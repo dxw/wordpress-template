@@ -1,18 +1,4 @@
-# (Project title)
-
-* Production: https://
-* Staging: https://
-
-Please use `master/develop` branches
-
-## Project management
-
-* [Trello](...)
-
-## Ghost Inspector tests
-
-* [Production](...)
-* [Staging](...)
+# Theme
 
 ## Browser support
 
@@ -21,14 +7,21 @@ Please use `master/develop` branches
 
 ## Development
 
-[`wpc`](https://github.com/dxw/wpc)
+### Install the dependencies:
 
-## Set up checklist
+```
+composer install
+yarn install
+```
 
-- [ ] Activate at least the following plugins:
-  - (insert required plugins)
-- [ ] Activate theme
-- [ ] Create at least the following pages:
-  - (insert required pages)
-- [ ] Create at lest the following menu:
-  - (insert required menus)
+### Run the tests:
+
+```
+vendor/bin/kahlan spec
+```
+
+### Run the linter:
+
+```
+vendor/bin/php-cs-fixer fix
+```
