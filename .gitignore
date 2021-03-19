@@ -1,11 +1,18 @@
+## Dependencies
 /vendor/
+
+## WordPress media
 /wp-content/uploads
 
-# macOS
+## macOS
 .DS_Store
-# IDEs
+
+## IDEs
 .idea
-# Other node package managers
+
+## Other node package managers
 package-lock.json
+
+## Whippet dependencies
 /wp-content/plugins/akismet
 /wp-content/plugins/advanced-custom-fields-pro
