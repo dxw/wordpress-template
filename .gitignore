@@ -1,3 +1,49 @@
+## Sensitive files
+#
+# To override these ignored files on a case-by-case basis,
+# instead of adding a rule to this file, force add them:
+#
+# ```
+# git add path/to/file --force
+# ```
+#
+# This reduces the risk of accidentally committing files that happen to match
+# the ignore pattern exception, or a file being removed and readded
+# unintentionally in the future.
+#
+### Databases
+*.db*
+*.dump*
+*.sql*
+*.sqlite3*
+### Environment variables
+.env
+.env.*
+### Logs
+*.log*
+### Secrets and keys
+*.crt*
+*.key*
+*.pem*
+### Spreadsheet data
+*.bks*
+*.csv*
+*.dex*
+*.numbers*
+*.ods*
+*.ots*
+*.tsv*
+*.xlr*
+*.xls*
+### Terraform
+.terraformrc*
+terraform.rc*
+*.tfstate*
+*.tfvars*
+.terraform/
+### XML data
+*.xml*
+
 ## Dependencies
 node_modules/
 vendor/
