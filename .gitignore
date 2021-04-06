@@ -51,12 +51,6 @@ vendor/
 ## WordPress media
 /wp-content/uploads
 
-## macOS
-.DS_Store
-
-## IDEs
-.idea
-
 ## Other node package managers
 package-lock.json
 
