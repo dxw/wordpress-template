@@ -1,5 +1,5 @@
 ## Dependencies
-/vendor/
+vendor/
 
 ## WordPress media
 /wp-content/uploads
