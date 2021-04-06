@@ -1,4 +1,5 @@
 ## Dependencies
+node_modules/
 vendor/
 
 ## WordPress media
