@@ -1,13 +1,15 @@
 ## IMPORTANT ##
 #
-# Usually a pattern here also belongs in your `.dockerignore` file and vice
-# versa.
+# Usually a pattern here also belongs in your `.gitignore` file and vice versa.
 #
 # Note that Docker's ignore syntax is slightly different to Git's. The main
 # difference is that Git interprets patterns without a leading slash as applying
 # to any subdirectory, while Docker interprets them as relative to the project
 # root directory. To resolve that, a `.dockerignore` should prefix those
 # patterns with `**/`. This is also compatible with Git.
+#
+# This file is NOT a substitute for being intentional in copying directories to
+# a Docker image. Avoid use of `COPY . <destination>` in your `Dockerfile`s.
 #
 ## How to use this file
 #
@@ -39,56 +41,54 @@
 # unintentionally in the future.
 #
 ### Databases
-*.db*
-*.dump*
-*.sql*
-*.sqlite3*
+**/*.db*
+**/*.dump*
+**/*.sql*
+**/*.sqlite3*
 ### Environment variables
-.env
-.env.*
+**/.env
+**/.env.*
 ### Logs
-*.log*
+**/*.log*
 ### Secrets and keys
-*.crt*
-*.key*
-*.pem*
+**/*.crt*
+**/*.key*
+**/*.pem*
 ### Spreadsheet data
-*.bks*
-*.csv*
-*.dex*
-*.numbers*
-*.ods*
-*.ots*
-*.tsv*
-*.xlr*
-*.xls*
+**/*.bks*
+**/*.csv*
+**/*.dex*
+**/*.numbers*
+**/*.ods*
+**/*.ots*
+**/*.tsv*
+**/*.xlr*
+**/*.xls*
 ### Terraform
-.terraformrc*
-terraform.rc*
-*.tfstate*
-*.tfvars*
-.terraform/
+**/.terraformrc*
+**/terraform.rc*
+**/*.tfstate*
+**/*.tfvars*
+**/.terraform/
 ### XML data
-*.xml*
+**/*.xml*
 
 ## Dependencies
-node_modules/
-vendor/
-
-## WordPress media
-/wp-content/uploads
+**/node_modules/
+/vendor/
 
 ## Other node package managers
-package-lock.json
+**/package-lock.json
 
 ## Temporary files
-tmp/
+**/tmp/
 
 ## Build artifacts
-.php_cs.cache
-.sass-cache/
-*.bak*
+**/.php_cs.cache
+**/.sass-cache/
+**/*.bak*
 
-## Whippet dependencies
-/wp-content/plugins/akismet
-/wp-content/plugins/advanced-custom-fields-pro
+## Docker specific patterns ##
+#
+### Workflow configuration
+/.github/
