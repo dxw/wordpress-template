@@ -44,6 +44,12 @@ Start the server:
 script/server
 ```
 
+You can also run the server in detached mode (i.e. without any output to your console):
+
+```
+script/server -d
+```
+
 Run the setup (first-time run only):
 
 ```
