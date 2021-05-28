@@ -56,6 +56,18 @@ Run the setup (first-time run only):
 script/setup
 ```
 
+Once the server has started, the following containers will be running:
+
+* WordPress: http://localhost (username/password: `admin`/`admin`)
+* MailCatcher: http://localhost:1080
+* Beanstalk Console: http://localhost:2080
+* MySQL: http://localhost:3306 (username/password: `root`/`foobar`)
+
+For a /bin/sh console running on the WordPress container, run `script/console`
+For a MySQL console, run `bin/wp db cli`
+
+## Plugins & Themes
+
 Use [Whippet](https://github.com/dxw/whippet) to manage plugins or external themes.
 
 See the [theme README](wp-content/themes/theme/README.md) for more on how to develop the theme.
