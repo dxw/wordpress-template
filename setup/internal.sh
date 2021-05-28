@@ -8,8 +8,10 @@ set -e
 ##############
 # Config
 ##############
+# TODO: Add your site title
 title="Your site title here"
 theme=theme/templates
+# TODO: Add a list of plugins that should be activated when running the setup script
 plugins="a-space-separated list-of plugins-to-activate"
 content=/usr/src/app/setup/content
 
