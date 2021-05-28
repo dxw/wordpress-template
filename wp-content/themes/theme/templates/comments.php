@@ -1,5 +1,5 @@
 <?php
-// TODO: Put me somewhere else
+
 if (post_password_required()) {
     return;
 }
