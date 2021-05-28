@@ -6,7 +6,7 @@ A base template for new dxw WordPress projects, including decision records.
 
 Click "Use this template" to start a new Github repo based on this template, or use `whippet generate app` to generate a repo locally.
 
-Search for `TODO` in this README, and follow those instructions to update it for your new repo, and then delete those instructions.
+Search for `TODO` in this README, and across this repo, and follow those instructions to update it for your new repo, and then delete those instructions.
 
 TODO: Remove the above sections from the README
 
