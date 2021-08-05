@@ -30,8 +30,6 @@ module.exports = function (grunt) {
         outputStyle: 'compressed',
         sourceMap: true,
         includePaths: [
-          require('bourbon').includePaths,
-          require('bourbon-neat').includePaths,
           require('node-normalize-scss').includePaths
         ]
       },
