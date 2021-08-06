@@ -11,7 +11,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-image')
 
-  const sass = require('node-sass')
+  const sass = require('sass')
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -30,8 +30,6 @@ module.exports = function (grunt) {
         outputStyle: 'compressed',
         sourceMap: true,
         includePaths: [
-          require('bourbon').includePaths,
-          require('bourbon-neat').includePaths,
           require('node-normalize-scss').includePaths
         ]
       },
