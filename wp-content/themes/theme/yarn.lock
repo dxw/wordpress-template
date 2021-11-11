@@ -3356,10 +3356,12 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
-node-normalize-scss@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/node-normalize-scss/-/node-normalize-scss-3.0.0.tgz#119bf5d5bb71160465e9f1204c41f691d26ecf77"
-  integrity sha1-EZv11btxFgRl6fEgTEH2kdJuz3c=
+node-normalize-scss@^8.1.2:
+  version "8.1.2"
+  resolved "https://registry.yarnpkg.com/node-normalize-scss/-/node-normalize-scss-8.1.2.tgz#cc9e19479406a29a4795cffebeaa3672a2ea8521"
+  integrity sha512-XJWNbbGpiFc1Dzmt2b9Vk58RUpCG5uLcdX38IRr6OXIlXJOqkgMyx/+iPrY/Z/QYBtZ3aORZp5hFs3iXIvDr2A==
+  dependencies:
+    normalize.css "^8.0.1"
 
 nopt@^5.0.0:
   version "5.0.0"
@@ -3406,6 +3408,11 @@ normalize-url@2.0.1:
     prepend-http "^2.0.0"
     query-string "^5.0.1"
     sort-keys "^2.0.0"
+
+normalize.css@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.1.tgz#9b98a208738b9cc2634caacbc42d131c97487bf3"
+  integrity sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
 
 npm-conf@^1.1.0:
   version "1.1.3"

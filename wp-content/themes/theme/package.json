@@ -2,7 +2,7 @@
   "dependencies": {
     "calc-polyfill": "^0.1.0",
     "jquery": "^3.3.1",
-    "node-normalize-scss": "^3.0.0"
+    "node-normalize-scss": "^8.1.2"
   },
   "devDependencies": {
     "grunt": "^1.1.0",
