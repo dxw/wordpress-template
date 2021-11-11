@@ -1,0 +1,29 @@
+version: 2
+updates:
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+  # Maintain root dependencies for Composer
+  - package-ecosystem: "composer"
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+  # Maintain theme production dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/wp-content/themes/theme"
+    allow:
+      - dependency-type: "production"
+    schedule:
+      interval: "daily"
+
+  # Maintain theme dependencies for Composer
+  - package-ecosystem: "composer"
+    directory: "/wp-content/themes/theme"
+    schedule:
+      interval: "daily"
+  
