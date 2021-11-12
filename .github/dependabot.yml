@@ -20,10 +20,16 @@ updates:
       - dependency-type: "production"
     schedule:
       interval: "daily"
+    # Prevent Dependabot opening PRs for non-security updates
+    # Our current build process would require manual intervention for these
+    open-pull-requests-limit: 0
 
   # Maintain theme dependencies for Composer
   - package-ecosystem: "composer"
     directory: "/wp-content/themes/theme"
     schedule:
       interval: "daily"
+    # Prevent Dependabot opening PRs for non-security updates
+    # Our current build process would require manual intervention for these
+    open-pull-requests-limit: 0
   
