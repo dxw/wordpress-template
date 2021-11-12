@@ -10,6 +10,7 @@ updates:
   # Maintain root dependencies for Composer
   - package-ecosystem: "composer"
     directory: "/"
+    versioning-strategy: "increase"
     schedule:
       interval: "daily"
 
