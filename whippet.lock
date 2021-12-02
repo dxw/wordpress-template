@@ -4,12 +4,12 @@
         {
             "name": "akismet",
             "src": "git@git.govpress.com:wordpress-plugins/akismet",
-            "revision": "3e6e48e4118bc264192b65f9f8712af80caf5bf8"
+            "revision": "77e6b8fd9a3649e36b25b04839b654df2e4d1d0c"
         },
         {
             "name": "advanced-custom-fields-pro",
             "src": "git@git.govpress.com:wordpress-plugins/advanced-custom-fields-pro",
-            "revision": "a95104d4c4a71d05640e4cb09c152596d171be8f"
+            "revision": "25bac35bf286c36b2ea24deaa3bc0b0f3a745494"
         }
     ]
 }
