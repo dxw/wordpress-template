@@ -1,0 +1,17 @@
+name: Dependabot.yml validation
+
+on: [push]
+
+jobs:
+
+  dependabot-validate-composer:
+    uses: dxw/govpress-workflow-dependabot-validate/.github/workflows/dependabot-validate.yml@v1
+    with:
+      package-ecosystem: composer
+      package-filename: composer.json
+
+  dependabot-validate-npm:
+    uses: dxw/govpress-workflow-dependabot-validate/.github/workflows/dependabot-validate.yml@v1
+    with:
+      package-ecosystem: npm
+      package-filename: package.json
