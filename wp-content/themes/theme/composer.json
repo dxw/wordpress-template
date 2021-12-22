@@ -19,7 +19,7 @@
     "require-dev": {
         "dxw/phar-install": "^1.0",
         "mikey179/vfsstream": "^1.6",
-        "dxw/php-cs-fixer-config": "^1.0",
+        "dxw/php-cs-fixer-config": "^2.0",
         "kahlan/kahlan": "^4.7",
         "roave/security-advisories": "dev-latest"
     },
