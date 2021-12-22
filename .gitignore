@@ -86,7 +86,7 @@ tmp/
 
 ## Build artifacts
 /composer.lock
-.php_cs.cache
+.php-cs-fixer.cache
 .sass-cache/
 *.bak*
 
