@@ -23,6 +23,7 @@ $registrar->addInstance(new \Theme\Theme\TitleTag());
 $registrar->addInstance(new \Theme\Theme\Pagination(
     $registrar->getInstance(\Dxw\Iguana\Theme\Helpers::class)
 ));
+$registrar->addInstance(new \Theme\Theme\Options());
 
 // Post types and additional fields
 $registrar->addInstance(new \Theme\Posts\PostTypes());
