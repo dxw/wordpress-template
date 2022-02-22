@@ -11,8 +11,8 @@ set -e
 # TODO: Add your site title
 title="Your site title here"
 theme=theme/templates
-# TODO: Add a list of plugins that should be activated when running the setup script
-plugins="a-space-separated list-of plugins-to-activate"
+# TODO: Add plugins that should be activated when running the setup script, separated by spaces
+plugins="advanced-custom-fields-pro"
 content=/usr/src/app/setup/content
 
 wp core install --skip-email --admin_user=admin --admin_password=admin --admin_email=admin@localhost.invalid --url=http://localhost --title="$title"
@@ -23,7 +23,7 @@ for plugin in $plugins
 do
   if wp plugin is-installed "$plugin"
   then
-    wp plugin activate "$plugin" --network
+    wp plugin activate "$plugin"
     # TODO: Uncomment for multisite
     #wp plugin activate "$plugin" --network
   else
