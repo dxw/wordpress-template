@@ -65,6 +65,7 @@ Once the server has started, the following containers will be running:
 
 For a /bin/sh console running on the WordPress container, run `script/console`
 For a MySQL console, run `bin/wp db cli`
+To run the php-cs-fixer linting and kahlan tests, run `script/test`
 
 ## Plugins & Themes
 
