@@ -34,7 +34,13 @@ TODO: add the link to the Trello board
 * Production
 * Staging
 
-TODO: add the link to this site's Ghost Inspector tests
+TODO: generate default Ghost Inspector test suites for staging p, using GovPress Tools:
+
+```bash
+govpress ghostinspector create-suite -s [dalmatian-service-name] -i [dalmatian-infrastructure name -e [dalmatian-environment]
+```
+
+Then add the link to this site's Ghost Inspector tests above
 
 ## Getting started
 
