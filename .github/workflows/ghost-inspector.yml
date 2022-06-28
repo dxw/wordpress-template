@@ -1,0 +1,15 @@
+name: Run Ghost Inspector test suite
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+
+  run-test-suite:
+    if:  startsWith(github.head_ref, 'develop')
+    uses: dxw/govpress-workflow-ghost-inspector/.github/workflows/ghost-inspector.yml@v1
+    secrets:
+      API_KEY: ${{ secrets.GHOST_INSPECTOR_API_KEY }}
+      SUITE_ID: ${{ secrets.GHOST_INSPECTOR_TEST_SUITE_ID_STAGING }}
