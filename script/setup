@@ -5,8 +5,10 @@ set -e
 script/bootstrap
 
 # Check if services running
+already_running=1
 if ! docker compose ps | grep -q running; then
   script/server -d
+  already_running=0
 fi
 
 # Wait for the MySQL container to be ready
@@ -16,4 +18,7 @@ while ! docker-compose exec wordpress mysqladmin ping -hmysql -pfoobar --silent;
 done
 
 docker-compose exec wordpress /usr/src/app/setup/internal.sh
-docker-compose down
+
+if [ $already_running != 1 ]; then
+  docker-compose down
+fi
