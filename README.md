@@ -44,6 +44,12 @@ Then add the link to this site's Ghost Inspector tests above
 
 ## Getting started
 
+Run the setup (first-time run only):
+
+```
+script/setup
+```
+
 Start the server:
 
 ```
@@ -54,12 +60,6 @@ You can also run the server in detached mode (i.e. without any output to your co
 
 ```
 script/server -d
-```
-
-Run the setup (first-time run only):
-
-```
-script/setup
 ```
 
 Once the server has started, the following containers will be running:
