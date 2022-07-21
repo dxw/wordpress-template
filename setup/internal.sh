@@ -15,6 +15,8 @@ theme=theme/templates
 plugins="advanced-custom-fields-pro"
 content=/usr/src/app/setup/content
 
+wp db reset --yes
+
 wp core install --skip-email --admin_user=admin --admin_password=admin --admin_email=admin@localhost.invalid --url=http://localhost --title="$title"
 # TODO: Uncomment for multisite
 #wp core multisite-install --skip-email --admin_user=admin --admin_password=admin --admin_email=admin@localhost.invalid --url=http://localhost --title="$title"
