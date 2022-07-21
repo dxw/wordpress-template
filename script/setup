@@ -17,6 +17,35 @@ while ! docker-compose exec wordpress mysqladmin ping -hmysql -pfoobar --silent 
     sleep 5
 done
 
+# Check if the wordpress db already exists
+database_exists=0
+if bin/wp db tables --quiet >/dev/null; then
+  database_exists=1
+fi
+# If so, give the option to take a backup
+if [ $database_exists = 1 ]; then
+  echo "===> It looks like a database already exists for this site."
+  echo "===> Would you like to take a backup of the current db before it's overwritten? (y/n)"
+  read -r yn
+  case $yn in
+    [Yy]* ) 
+      mkdir -p setup/backups
+      timestamp=$(date "+%Y%m%d%H%M%S")
+      bin/wp db export "$timestamp".sql
+      docker compose cp wordpress:/var/www/html/"$timestamp".sql ./setup/backups/"$timestamp".sql
+      echo "===> Backup written to setup/backups/$timestamp.sql"
+      echo "===> You can restore the backup later with this command:" 
+      echo "bin/wp db import /usr/src/app/setup/backups/$timestamp.sql"
+      ;;
+    [Nn]* ) 
+      echo "===> Ok, proceeding without backup"
+      ;;
+    * ) 
+      echo "Please answer yes or no."
+      exit;;
+  esac
+fi
+
 docker-compose exec wordpress /usr/src/app/setup/internal.sh
 
 if [ $already_running != 1 ]; then
