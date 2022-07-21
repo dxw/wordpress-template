@@ -12,8 +12,8 @@ if ! docker compose ps | grep -q running; then
 fi
 
 # Wait for the MySQL container to be ready
-while ! docker-compose exec wordpress mysqladmin ping -hmysql -pfoobar --silent; do
-    echo "Waiting for MySQL instance to be ready..."
+while ! docker-compose exec wordpress mysqladmin ping -hmysql -pfoobar --silent >/dev/null; do
+    echo "===> Waiting for MySQL instance to be ready..."
     sleep 5
 done
 
