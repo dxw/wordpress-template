@@ -17,11 +17,13 @@ if ! type "php" > /dev/null 2>&1; then
 fi
 
 if ! type "composer" > /dev/null 2>&1; then
-  echo "\033[96mWarning:\033[0m Please install Composer, https://getcomposer.org/download/"
+  echo "\033[96mWarning:\033[0m Please install Composer, 'brew install composer' or https://getcomposer.org/download/"
   exit 1
 fi
 
-composer install
+echo "===> Installing root Composer dependencies..."
+
+composer update
 
 if test -f whippet.json 2>&1; then
   if test -f whippet.lock 2>&1; then
