@@ -21,6 +21,13 @@ if ! type "composer" > /dev/null 2>&1; then
   exit 1
 fi
 
+if [ -f Brewfile ] && [ "$(uname -s)" = "Darwin" ]; then
+  if ! brew bundle check >/dev/null 2>&1; then
+    echo "==> Installing Homebrew dependencies..."
+    brew bundle install --verbose --no-lock
+  fi
+fi
+
 echo "===> Installing root Composer dependencies..."
 
 composer update
