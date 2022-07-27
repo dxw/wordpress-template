@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+THEME_DIRECTORY="./wp-content/themes/theme"
+
+echo "===> Linting shell scripts..."
+
+./.shellcheck.sh
+
+echo "===> Linting theme files..."
+
+./wp-content/themes/theme/vendor/bin/php-cs-fixer fix --dry-run -v --diff  --config="$THEME_DIRECTORY/.php-cs-fixer.php"
+
+echo "===> Running theme unit tests..."
+./wp-content/themes/theme/vendor/bin/kahlan --spec="$THEME_DIRECTORY/spec"
