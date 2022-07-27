@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+THEME_DIRECTORY="./wp-content/themes/theme"
+
 if ! type "docker" > /dev/null 2>&1; then
   echo "\033[96mWarning:\033[0m Please install Docker: https://docs.docker.com/docker-for-mac/install/"
   exit 1
@@ -44,8 +46,8 @@ fi
 
 echo "===> Installing theme Composer dependencies..."
 
-composer install -d ./wp-content/themes/theme
+composer install -d $THEME_DIRECTORY
 
 echo "===> Installing theme Yarn dependencies..."
 
-yarn --cwd ./wp-content/themes/theme install
+yarn --cwd $THEME_DIRECTORY install
