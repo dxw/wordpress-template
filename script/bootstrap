@@ -25,6 +25,8 @@ echo "===> Installing root Composer dependencies..."
 
 composer update
 
+echo "===> Installing WordPress plugins..."
+
 if test -f whippet.json 2>&1; then
   if test -f whippet.lock 2>&1; then
     vendor/bin/whippet deps install
@@ -32,3 +34,11 @@ if test -f whippet.json 2>&1; then
     vendor/bin/whippet deps update
   fi
 fi
+
+echo "===> Installing theme Composer dependencies..."
+
+composer install -d ./wp-content/themes/theme
+
+echo "===> Installing theme Yarn dependencies..."
+
+yarn --cwd ./wp-content/themes/theme install
