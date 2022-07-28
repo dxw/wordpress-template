@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+THEME_DIRECTORY="./wp-content/themes/theme"
+
 if ! type "docker" > /dev/null 2>&1; then
   echo "\033[96mWarning:\033[0m Please install Docker: https://docs.docker.com/docker-for-mac/install/"
   exit 1
@@ -17,11 +19,22 @@ if ! type "php" > /dev/null 2>&1; then
 fi
 
 if ! type "composer" > /dev/null 2>&1; then
-  echo "\033[96mWarning:\033[0m Please install Composer, https://getcomposer.org/download/"
+  echo "\033[96mWarning:\033[0m Please install Composer, 'brew install composer' or https://getcomposer.org/download/"
   exit 1
 fi
 
-composer install
+if [ -f Brewfile ] && [ "$(uname -s)" = "Darwin" ]; then
+  if ! brew bundle check >/dev/null 2>&1; then
+    echo "==> Installing Homebrew dependencies..."
+    brew bundle install --verbose --no-lock
+  fi
+fi
+
+echo "===> Installing root Composer dependencies..."
+
+composer update
+
+echo "===> Installing WordPress plugins..."
 
 if test -f whippet.json 2>&1; then
   if test -f whippet.lock 2>&1; then
@@ -30,3 +43,11 @@ if test -f whippet.json 2>&1; then
     vendor/bin/whippet deps update
   fi
 fi
+
+echo "===> Installing theme Composer dependencies..."
+
+composer install -d $THEME_DIRECTORY
+
+echo "===> Installing theme Yarn dependencies..."
+
+yarn --cwd $THEME_DIRECTORY install
