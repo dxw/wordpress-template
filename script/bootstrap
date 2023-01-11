@@ -48,6 +48,6 @@ echo "===> Installing theme Composer dependencies..."
 
 composer install -d $THEME_DIRECTORY
 
-echo "===> Installing theme Yarn dependencies..."
+echo "===> Installing theme NPM dependencies..."
 
-yarn --cwd $THEME_DIRECTORY install
+npm --prefix $THEME_DIRECTORY install
