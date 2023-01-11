@@ -5,6 +5,7 @@
     "node-normalize-scss": "^3.0.0"
   },
   "devDependencies": {
+    "browserify": "^17.0.0",
     "cpy-cli": "^4.2.0",
     "del": "^7.0.0",
     "del-cli": "^5.0.0",
@@ -24,6 +25,7 @@
     "standard": "^17.0.0"
   },
   "scripts": {
+    "browserify": "browserify assets/js/main.js > static/main.min.js --debug",
     "clean": "del static/*",
     "copy": "cpy 'node_modules/jquery/dist/jquery.min.js' 'static/lib/' --flat",
     "images": "imagemin assets/img/* --out-dir=static/img/",
