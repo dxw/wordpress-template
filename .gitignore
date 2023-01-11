@@ -63,8 +63,6 @@ node_modules/
 vendor/
 ## WordPress media
 /wp-content/uploads
-## Other node package managers
-package-lock.json
 ## Temporary files
 tmp/
 ## Build artifacts

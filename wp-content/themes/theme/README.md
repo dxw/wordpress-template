@@ -26,8 +26,6 @@ This theme template makes use of [iguana](https://github.com/dxw/iguana) for dep
 ## SASS Libraries
 
 - [Normalize.css](http://necolas.github.io/normalize.css/) - makes browsers render all elements more consistently
-- [Bourbon](http://bourbon.io/) - lightweight mixin library
-- [Neat](http://neat.bourbon.io/) - lightweight and flexible grid
 
 
 ## Commands
@@ -42,11 +40,11 @@ Run PHP linter:
 
 Build JS/CSS:
 
-    yarn run grunt
+    npm run build
 
 Build JS/CSS upon file modification:
 
-    yarn run grunt watch
+    npm run watch
 
 ## Guide
 

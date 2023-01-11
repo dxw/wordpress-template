@@ -51,12 +51,10 @@ describe(Scripts::class, function () {
             expect('wp_deregister_script')->toBeCalled()->with('jquery');
 
             allow('wp_enqueue_script')->toBeCalled();
-            expect('wp_enqueue_script')->toBeCalled()->times(3);
+            expect('wp_enqueue_script')->toBeCalled()->times(2);
             expect('wp_enqueue_script')->toBeCalled()->with('jquery', 'http://a.invalid/static/lib/jquery.min.js');
 
-            expect('wp_enqueue_script')->toBeCalled()->with('modernizr', 'http://a.invalid/static/lib/modernizr.min.js');
-
-            expect('wp_enqueue_script')->toBeCalled()->with('main', 'http://a.invalid/static/main.min.js', ['jquery', 'modernizr'], '', true);
+            expect('wp_enqueue_script')->toBeCalled()->with('main', 'http://a.invalid/static/main.min.js', ['jquery'], '', true);
 
             allow('wp_enqueue_style')->toBeCalled();
             expect('wp_enqueue_style')->toBeCalled()->once();
