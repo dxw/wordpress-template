@@ -5,6 +5,7 @@
     "node-normalize-scss": "^3.0.0"
   },
   "devDependencies": {
+    "cpy-cli": "^4.2.0",
     "del": "^7.0.0",
     "del-cli": "^5.0.0",
     "grunt": "^1.5.3",
@@ -24,6 +25,7 @@
   },
   "scripts": {
     "clean": "del static/*",
+    "copy": "cpy 'node_modules/jquery/dist/jquery.min.js' 'static/lib/' --flat",
     "images": "imagemin assets/img/* --out-dir=static/img/",
     "scss": "sass assets/scss/main.scss:static/main.min.css --load-path=node_modules/node-normalize-scss --style=compressed",
     "standard": "standard assets/js/main.js"
