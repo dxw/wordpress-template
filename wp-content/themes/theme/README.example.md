@@ -11,7 +11,7 @@
 
 ```
 composer install
-yarn install
+npm install
 ```
 
 ### Run the tests:

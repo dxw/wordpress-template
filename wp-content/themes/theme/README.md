@@ -40,11 +40,11 @@ Run PHP linter:
 
 Build JS/CSS:
 
-    yarn run grunt
+    npm run build
 
 Build JS/CSS upon file modification:
 
-    yarn run grunt watch
+    npm run watch
 
 ## Guide
 
