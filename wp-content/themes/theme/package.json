@@ -9,6 +9,7 @@
     "cpy-cli": "^4.2.0",
     "del": "^7.0.0",
     "del-cli": "^5.0.0",
+    "exorcist": "^2.0.0",
     "grunt": "^1.5.3",
     "grunt-browserify": "^6.0.0",
     "grunt-cli": "^1.3.2",
@@ -25,7 +26,7 @@
     "standard": "^17.0.0"
   },
   "scripts": {
-    "browserify": "browserify assets/js/main.js > static/main.min.js --debug",
+    "browserify": "browserify assets/js/main.js --debug | exorcist static/main.min.js.map > static/main.min.js",
     "clean": "del static/*",
     "copy": "cpy 'node_modules/jquery/dist/jquery.min.js' 'static/lib/' --flat",
     "images": "imagemin assets/img/* --out-dir=static/img/",
