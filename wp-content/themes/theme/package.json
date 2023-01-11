@@ -23,6 +23,7 @@
   },
   "scripts": {
     "clean": "del static/*",
-    "images": "imagemin assets/img/* --out-dir=static/img/"
+    "images": "imagemin assets/img/* --out-dir=static/img/",
+    "scss": "sass assets/scss/main.scss:static/main.min.css --load-path=node_modules/node-normalize-scss --style=compressed"
   }
 }
