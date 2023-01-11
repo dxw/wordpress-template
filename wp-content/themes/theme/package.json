@@ -32,6 +32,7 @@
     "copy": "cpy 'node_modules/jquery/dist/jquery.min.js' 'static/lib/' --flat",
     "images": "imagemin assets/img/* --out-dir=static/img/",
     "scss": "sass assets/scss/main.scss:static/main.min.css --load-path=node_modules/node-normalize-scss --style=compressed",
-    "standard": "standard assets/js/main.js"
+    "standard": "standard assets/js/main.js",
+    "build": "npm-run-all clean copy images scss standard browserify"
   }
 }
