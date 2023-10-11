@@ -4,14 +4,14 @@ namespace Theme\Theme;
 
 class Analytics implements \Dxw\Iguana\Registerable
 {
-    public function register()
-    {
-        add_action('wp_footer', [$this, 'wpFooter']);
-    }
+	public function register()
+	{
+		add_action('wp_footer', [$this, 'wpFooter']);
+	}
 
-    public function wpFooter()
-    {
-        ?>
+	public function wpFooter()
+	{
+		?>
         <script>
             var TRACKING_CODE = ''; //Put the Google Analytics tracking code here
             if (!TRACKING_CODE.length) {
@@ -28,5 +28,5 @@ class Analytics implements \Dxw\Iguana\Registerable
             gtag('config', TRACKING_CODE);
         </script>
         <?php
-    }
+	}
 }
