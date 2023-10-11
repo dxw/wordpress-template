@@ -13,14 +13,14 @@
     ],
     "config": {
       "platform": {
-        "php": "7.2"
+        "php": "7.4"
       }
     },
     "require-dev": {
         "dxw/phar-install": "^1.0",
         "mikey179/vfsstream": "^1.6",
         "dxw/php-cs-fixer-config": "^2.0",
-        "kahlan/kahlan": "^4.7",
+        "kahlan/kahlan": "^5.2",
         "roave/security-advisories": "dev-latest"
     },
     "autoload": {
