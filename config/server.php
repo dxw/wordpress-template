@@ -1,5 +1,10 @@
 <?php
 
+// Use this file for local server config we want to commit
+// e.g. defining constants we want all devs to have access to
+// Add a `server-local.php` file to this folder
+// For config you only want to use locally, without committing
+
 // TODO: uncomment for a multisite installation
 /*
 if(!defined('MULTISITE')) {

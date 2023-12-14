@@ -67,6 +67,7 @@ vendor/
 tmp/
 ## Build artifacts
 /composer.lock
+/config/server-local.php
 .php-cs-fixer.cache
 .sass-cache/
 *.bak*
