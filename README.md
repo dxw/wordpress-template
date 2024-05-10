@@ -16,7 +16,7 @@ TODO: Remove the above sections from the README
 
 TODO: Replace the `[Your Project Name]` heading  above with the name of your project.
 
-Production: 
+Production:
 Staging:
 
 TODO: Add the production & staging URLs to the above.
@@ -79,3 +79,11 @@ Use [Whippet](https://github.com/dxw/whippet) to manage plugins or external them
 See the [theme README](wp-content/themes/theme/README.md) for more on how to develop the theme.
 
 TODO: Remove the `README.md` from `wp-content/themes/theme`, and rename `README.example.md` to `README.md`, updating it as needed.
+
+## Cookies
+
+TODO: List any cookies being set by the theme and/or plugins so that Ops can configure the caching correctly.
+
+## Notes for Developers
+
+TODO: Document any custom or non-standard behaviour that may confuse developers new to the project, e.g. default wordpress or plugin behaviour that is being overridden.
