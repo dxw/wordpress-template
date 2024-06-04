@@ -9,7 +9,7 @@
         {
             "name": "advanced-custom-fields-pro",
             "src": "git@github.com:dxw-wordpress-plugins/advanced-custom-fields-pro",
-            "revision": "001524f27b2521cad6ed0a3793f894d3c1658148"
+            "revision": "f9df07ea23fe38372e6bcf14cf8d06f25bd32714"
         }
     ]
 }
