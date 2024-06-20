@@ -71,6 +71,16 @@ tmp/
 .php-cs-fixer.cache
 .sass-cache/
 *.bak*
+## Query monitor files and similar drop-ins
+wp-content/advanced-cache.php
+wp-content/db-error.php
+wp-content/db.php
+wp-content/debug.log
+wp-content/fatal-error-handler.php
+wp-content/install.php
+wp-content/maintenance.php
+wp-content/object-cache.php
+wp-content/php-error.php
 ## Whippet dependencies
 /wp-content/plugins/akismet
 /wp-content/plugins/advanced-custom-fields-pro
