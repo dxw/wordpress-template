@@ -5,6 +5,6 @@ on: [push, pull_request]
 jobs:
 
   whippet-deps-validate:
-    uses: dxw/govpress-workflow-whippet-validate/.github/workflows/whippet-dependencies-validate.yml@v2
+    uses: dxw/govpress-workflow-whippet-validate/.github/workflows/whippet-dependencies-validate.yml@v3
     secrets:
       GH_ACCOUNT_TOKEN: ${{ secrets.GOVPRESS_TOOLS_PLUGIN_READER_TOKEN }}
