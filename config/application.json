@@ -1,6 +1,6 @@
 {
     "wordpress": {
-        "repository": "git@git.govpress.com:wordpress/snapshot",
+        "repository": "git@github.com:dxw/wordpress-snapshot",
         "revision": "v6"
     }
 }
