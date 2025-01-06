@@ -4,12 +4,12 @@
         {
             "name": "akismet",
             "src": "git@github.com:dxw-wordpress-plugins/akismet",
-            "revision": "21bbcc97b63b8344622798b8daf9a7dd5f25baac"
+            "revision": "2322b839069dfe2726b3dc1566d540a3c6608eeb"
         },
         {
             "name": "advanced-custom-fields-pro",
             "src": "git@github.com:dxw-wordpress-plugins/advanced-custom-fields-pro",
-            "revision": "7325be0875bebb9d12279ab6ce2bf9ee525ee8c3"
+            "revision": "abdd0897141a69679fb172b3f45401b48cad57e9"
         }
     ]
 }
