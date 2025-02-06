@@ -18,7 +18,7 @@ services:
       MYSQL_ROOT_PASSWORD: foobar
 
   wordpress:
-    image: thedxw/wpc-wordpress
+    image: thedxw/wpc-wordpress:php8.2
     ports:
       - "80:80"
     links:
