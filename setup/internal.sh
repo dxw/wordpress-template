@@ -29,7 +29,7 @@ do
     # TODO: Uncomment for multisite
     #wp plugin activate "$plugin" --network
   else
-      echo "\033[96mWarning:\033[0m Plugin '$plugin' could not be found. Have you installed it?"
+    printf "\033[96mWarning:\033[0m Plugin '%s' could not be found. Have you installed it?" "$plugin"
   fi
 done
 
@@ -39,7 +39,7 @@ then
   #wp theme enable --network $theme
   wp theme activate $theme
 else
-  echo "\033[96mWarning:\033[0m Theme '$theme' could not be found. Have you installed it?"
+  printf "\033[96mWarning:\033[0m Theme '%s' could not be found. Have you installed it?" "$theme"
 fi
 
 import() {
