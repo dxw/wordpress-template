@@ -4,22 +4,22 @@ set -e
 THEME_DIRECTORY="./wp-content/themes/theme"
 
 if ! type "docker" > /dev/null 2>&1; then
-  echo "\033[96mWarning:\033[0m Please install Docker: https://docs.docker.com/docker-for-mac/install/"
+  printf "\033[96mWarning:\033[0m Please install Docker: https://docs.docker.com/docker-for-mac/install/"
   exit 1
 fi
 
 if ! type "docker-compose" > /dev/null 2>&1; then
-  echo "\033[96mWarning:\033[0m Please install Docker Compose: https://docs.docker.com/docker-for-mac/install/"
+  printf "\033[96mWarning:\033[0m Please install Docker Compose: https://docs.docker.com/docker-for-mac/install/"
   exit 1
 fi
 
 if ! type "php" > /dev/null 2>&1; then
-  echo "\033[96mWarning:\033[0m Please install PHP, one method is 'brew install php'"
+  printf "\033[96mWarning:\033[0m Please install PHP, one method is 'brew install php'"
   exit 1
 fi
 
 if ! type "composer" > /dev/null 2>&1; then
-  echo "\033[96mWarning:\033[0m Please install Composer, 'brew install composer' or https://getcomposer.org/download/"
+  printf "\033[96mWarning:\033[0m Please install Composer, 'brew install composer' or https://getcomposer.org/download/"
   exit 1
 fi
 
