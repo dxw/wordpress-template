@@ -5,4 +5,4 @@ on: [push, pull_request]
 jobs:
 
   php-syntax-check:
-    uses: dxw/govpress-workflow-php-syntax-check/.github/workflows/php-syntax-check.yml@v0.1
+    uses: dxw/govpress-workflow-php-syntax-check/.github/workflows/php-syntax-check.yml@v1.0
