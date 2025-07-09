@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dxw/dxw-card-block",
+	"version": "0.1.0",
+	"title": "Dxw Card Block",
+	"category": "theme",
+	"icon": "index-card",
+	"description": "Card component that can be used to highlight a particular article or custom content",
+	"example": {},
+	"supports": {
+		"html": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"attributes": {
+		"selectedPost": {
+			"type": "string"
+		},
+		"cardTypePost": {
+			"type": "boolean",
+			"default": true
+		},
+		"acceptedPostTypes": {
+			"type": "array",
+			"default": [
+				"post",
+				"page"
+			]
+		},
+		"headingLevel": {
+			"type": "string",
+			"default": "h2"
+		}
+	},
+	"textdomain": "dxw/dxw-card-block",
+	"editorScript": "file:./index.js"
+}
