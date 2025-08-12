@@ -46,19 +46,19 @@ Then add the link to this site's Ghost Inspector tests above
 
 Run the setup (first-time run only):
 
-```
+```sh
 script/setup
 ```
 
 Start the server:
 
-```
+```sh
 script/server
 ```
 
 You can also run the server in detached mode (i.e. without any output to your console):
 
-```
+```sh
 script/server -d
 ```
 
