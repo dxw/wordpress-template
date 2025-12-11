@@ -1,9 +1,9 @@
 {
-    "src": {
-        "plugins": "git@github.com:dxw-wordpress-plugins/"
-    },
-    "plugins": [
-        {"name": "akismet", "ref": "v5"},
-        {"name": "advanced-custom-fields-pro", "ref": "v6"}
-    ]
+	"src": {
+		"plugins": "git@github.com:dxw-wordpress-plugins/"
+	},
+	"plugins": [
+		{"name": "akismet", "ref": "v5"},
+		{"name": "advanced-custom-fields-pro", "ref": "v6"}
+	]
 }

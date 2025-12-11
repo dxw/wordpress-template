@@ -1,15 +1,15 @@
 {
-    "hash": "64778640d5b58ae1c914a29e7a3cb8848f913027",
+    "hash": "deecfd2107246292b87f3b3e8d77638452add0ec",
     "plugins": [
         {
             "name": "akismet",
             "src": "git@github.com:dxw-wordpress-plugins/akismet",
-            "revision": "2322b839069dfe2726b3dc1566d540a3c6608eeb"
+            "revision": "f381147af2010e3e0d1011679dc59a2406333326"
         },
         {
             "name": "advanced-custom-fields-pro",
             "src": "git@github.com:dxw-wordpress-plugins/advanced-custom-fields-pro",
-            "revision": "ae897af1b3098a9caa139f75240b0ae266286d8e"
+            "revision": "871ba506c36f85d30c0a17e470a5c8afb8ba2cf0"
         }
     ]
 }
