@@ -1,5 +1,5 @@
 {
-    "hash": "64778640d5b58ae1c914a29e7a3cb8848f913027",
+    "hash": "2d84f7d25a48b3e60b2e59005cd6ef2341aa2a11",
     "plugins": [
         {
             "name": "akismet",
@@ -10,6 +10,11 @@
             "name": "advanced-custom-fields-pro",
             "src": "git@github.com:dxw-wordpress-plugins/advanced-custom-fields-pro",
             "revision": "ae897af1b3098a9caa139f75240b0ae266286d8e"
+        },
+        {
+            "name": "redis-cache",
+            "src": "git@github.com:dxw-wordpress-plugins/redis-cache",
+            "revision": "abdbcc1827df57d3a642e8ecce5379877f69bd45"
         }
     ]
 }

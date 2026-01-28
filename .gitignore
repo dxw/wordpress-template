@@ -84,3 +84,4 @@ wp-content/php-error.php
 ## Whippet dependencies
 /wp-content/plugins/akismet
 /wp-content/plugins/advanced-custom-fields-pro
+/wp-content/plugins/redis-cache
