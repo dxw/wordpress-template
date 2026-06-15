@@ -6,11 +6,15 @@ services:
     image: schickling/mailcatcher
     ports:
       - "1080:1080"
+      - "127.0.0.1:1080:1080"
+      - "[::1]:1080:1080"
 
   mysql:
     image: mariadb:10
     ports:
       - "3306:3306"
+      - "127.0.0.1:3306:3306"
+      - "[::1]:3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     environment:
@@ -21,6 +25,8 @@ services:
     image: thedxw/wpc-wordpress:php8.2
     ports:
       - "80:80"
+      - "127.0.0.1:80:80"
+      - "[::1]:80:80"
     links:
       - mysql
       - mailcatcher
