@@ -9,7 +9,7 @@ services:
       - "[::1]:1080:1080"
 
   mysql:
-    image: mariadb:10
+    image: mariadb:12
     ports:
       - "127.0.0.1:3306:3306"
       - "[::1]:3306:3306"
