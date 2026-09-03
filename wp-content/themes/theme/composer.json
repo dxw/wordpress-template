@@ -34,7 +34,7 @@
     "require": {
         "php": "^8.2",
         "dxw/pagination": "^1.0",
-        "dxw/iguana": "^1.0",
+        "dxw/iguana": "^1.4",
         "dxw/iguana-theme": "^1.0",
         "dxw/iguana-extras": "^1.0",
         "stoutlogic/acf-builder": "^1.12"
