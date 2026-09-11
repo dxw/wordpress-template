@@ -4,7 +4,7 @@
         {
             "name": "advanced-custom-fields-pro",
             "src": "git@github.com:dxw-wordpress-plugins/advanced-custom-fields-pro",
-            "revision": "1d04664a48e5b4f4b9ad551226cca48c84cb12d2"
+            "revision": "d2be0509ec4e4dab53e136c1abe4452820ea9736"
         },
         {
             "name": "akismet",
