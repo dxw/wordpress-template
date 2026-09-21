@@ -82,6 +82,6 @@ wp-content/maintenance.php
 wp-content/object-cache.php
 wp-content/php-error.php
 ## Whippet dependencies
-/wp-content/plugins/akismet
 /wp-content/plugins/advanced-custom-fields-pro
+/wp-content/plugins/akismet
 /wp-content/plugins/redis-cache
