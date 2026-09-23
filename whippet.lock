@@ -1,5 +1,5 @@
 {
-    "hash": "ee2d29a39fc33d9622c9668c4d5fdfc1e6b7dc98",
+    "hash": "657a8edcb34f83b9bc116548c288ca84e4cdcc07",
     "plugins": [
         {
             "name": "advanced-custom-fields-pro",
@@ -14,7 +14,7 @@
         {
             "name": "redis-cache",
             "src": "git@github.com:dxw-wordpress-plugins/redis-cache",
-            "revision": "06712fd828af2b7768cf1539a7b9d8397086d1fd"
+            "revision": "b74e21030d6deb40ea547c35bb16a3c377ccb723"
         }
     ]
 }
