@@ -4,7 +4,7 @@ on: push
 
 jobs:
   shellcheck:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
       - run: sudo apt-get update
